@@ -1,0 +1,73 @@
+fileFormatVersion: 2
+guid: dfae294b37bc17247b1ab6d493dd336e
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - statsTex: {instanceID: 0}
+  - gskin: {fileID: 11400000, guid: 314c40d0868b9854db2ad976d717b73a, type: 2}
+  - achievementBox: {instanceID: 0}
+  - profileBar: {instanceID: 0}
+  - questionNoteTex: {instanceID: 0}
+  - iconTexEnv1: {instanceID: 0}
+  - iconTexEnv2: {instanceID: 0}
+  - iconTexEnv3: {instanceID: 0}
+  - noteTexEnv1: {instanceID: 0}
+  - noteTexEnv2: {instanceID: 0}
+  - noteTexEnv3: {instanceID: 0}
+  - iconTexPub1: {instanceID: 0}
+  - iconTexPub2: {instanceID: 0}
+  - iconTexPub3: {instanceID: 0}
+  - noteTexPub1: {instanceID: 0}
+  - noteTexPub2: {instanceID: 0}
+  - noteTexPub3: {instanceID: 0}
+  - iconTexTim1: {instanceID: 0}
+  - iconTexTim2: {instanceID: 0}
+  - iconTexTim3: {instanceID: 0}
+  - noteTexTim1: {instanceID: 0}
+  - noteTexTim2: {instanceID: 0}
+  - noteTexTim3: {instanceID: 0}
+  - iconTexEco1: {instanceID: 0}
+  - iconTexEco2: {instanceID: 0}
+  - iconTexEco3: {instanceID: 0}
+  - noteTexEco1: {instanceID: 0}
+  - noteTexEco2: {instanceID: 0}
+  - noteTexEco3: {instanceID: 0}
+  - iconTexPol1: {instanceID: 0}
+  - iconTexPol2: {instanceID: 0}
+  - iconTexPol3: {instanceID: 0}
+  - noteTexPol1: {instanceID: 0}
+  - noteTexPol2: {instanceID: 0}
+  - noteTexPol3: {instanceID: 0}
+  - iconTexComm1: {instanceID: 0}
+  - iconTexComm2: {instanceID: 0}
+  - iconTexComm3: {instanceID: 0}
+  - noteTexComm1: {instanceID: 0}
+  - noteTexComm2: {instanceID: 0}
+  - noteTexComm3: {instanceID: 0}
+  - iconTexEth1: {instanceID: 0}
+  - iconTexEth2: {instanceID: 0}
+  - iconTexEth3: {instanceID: 0}
+  - noteTexEth1: {instanceID: 0}
+  - noteTexEth2: {instanceID: 0}
+  - noteTexEth3: {instanceID: 0}
+  - iconTexGen1: {instanceID: 0}
+  - iconTexGen2: {instanceID: 0}
+  - iconTexGen3: {instanceID: 0}
+  - iconTexGen4: {instanceID: 0}
+  - iconTexGen5: {instanceID: 0}
+  - iconTexGen6: {instanceID: 0}
+  - iconTexGen7: {instanceID: 0}
+  - iconTexGen8: {instanceID: 0}
+  - iconTexGen9: {instanceID: 0}
+  - noteTexGen1: {instanceID: 0}
+  - noteTexGen2: {instanceID: 0}
+  - noteTexGen3: {instanceID: 0}
+  - noteTexGen4: {instanceID: 0}
+  - noteTexGen5: {instanceID: 0}
+  - noteTexGen6: {instanceID: 0}
+  - noteTexGen7: {instanceID: 0}
+  - noteTexGen8: {instanceID: 0}
+  - noteTexGen9: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

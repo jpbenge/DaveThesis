@@ -1,0 +1,121 @@
+fileFormatVersion: 2
+guid: cbddc51b65155413d8af03b15f0efdda
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: polySurface1
+    100002: polySurface1_MeshPart0
+    100004: polySurface1_MeshPart1
+    100006: polySurface1_MeshPart2
+    100008: Round_SecurityCam_V01:Cam_Inside_Sphere
+    100010: Round_SecurityCam_V01:CamBody
+    100012: Round_SecurityCam_V01:CamBottom
+    100014: Round_SecurityCam_V01:CamGlas
+    100016: Round_SecurityCam_V01:CamTop
+    100018: Round_SecurityCam_V01:LED_s
+    100020: Round_SecurityCam_V01:Lens
+    100022: Round_SecurityCam_V01:Lens_Ring
+    100024: Round_SecurityCam_V01:LensCover
+    100026: Round_SecurityCam_V01:LensGlas
+    100028: Round_SecurityCam_V01:WarnLED
+    100030: //RootNode
+    100032: transform1
+    100034: transform10
+    100036: transform11
+    100038: transform2
+    100040: transform3
+    100042: transform4
+    100044: transform5
+    100046: transform6
+    100048: transform7
+    100050: transform8
+    100052: transform9
+    400000: polySurface1
+    400002: polySurface1_MeshPart0
+    400004: polySurface1_MeshPart1
+    400006: polySurface1_MeshPart2
+    400008: Round_SecurityCam_V01:Cam_Inside_Sphere
+    400010: Round_SecurityCam_V01:CamBody
+    400012: Round_SecurityCam_V01:CamBottom
+    400014: Round_SecurityCam_V01:CamGlas
+    400016: Round_SecurityCam_V01:CamTop
+    400018: Round_SecurityCam_V01:LED_s
+    400020: Round_SecurityCam_V01:Lens
+    400022: Round_SecurityCam_V01:Lens_Ring
+    400024: Round_SecurityCam_V01:LensCover
+    400026: Round_SecurityCam_V01:LensGlas
+    400028: Round_SecurityCam_V01:WarnLED
+    400030: //RootNode
+    400032: transform1
+    400034: transform10
+    400036: transform11
+    400038: transform2
+    400040: transform3
+    400042: transform4
+    400044: transform5
+    400046: transform6
+    400048: transform7
+    400050: transform8
+    400052: transform9
+    2300000: polySurface1_MeshPart0
+    2300002: polySurface1_MeshPart1
+    2300004: polySurface1_MeshPart2
+    3300000: polySurface1_MeshPart0
+    3300002: polySurface1_MeshPart1
+    3300004: polySurface1_MeshPart2
+    4300000: polySurface1_MeshPart0
+    4300002: polySurface1_MeshPart1
+    4300004: polySurface1_MeshPart2
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 

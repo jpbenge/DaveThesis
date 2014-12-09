@@ -1,0 +1,125 @@
+fileFormatVersion: 2
+guid: 6f1ef509127ef4fe0be6f10fd2e37713
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Boden
+    100002: //RootNode
+    100004: Dach
+    100006: Dichtung
+    100008: Front
+    100010: Front_Rahmen
+    100012: Luke
+    100014: Luke_Rahmen
+    100016: Notoeffner1
+    100018: Notoeffner2
+    100020: Rahmen
+    100022: Stapelpuffer
+    100024: Wand_links
+    100026: Wand_rechts
+    400000: Boden
+    400002: //RootNode
+    400004: Dach
+    400006: Dichtung
+    400008: Front
+    400010: Front_Rahmen
+    400012: Luke
+    400014: Luke_Rahmen
+    400016: Notoeffner1
+    400018: Notoeffner2
+    400020: Rahmen
+    400022: Stapelpuffer
+    400024: Wand_links
+    400026: Wand_rechts
+    2300000: Boden
+    2300002: Dach
+    2300004: Dichtung
+    2300006: Front
+    2300008: Front_Rahmen
+    2300010: Luke
+    2300012: Luke_Rahmen
+    2300014: Notoeffner1
+    2300016: Notoeffner2
+    2300018: Rahmen
+    2300020: Stapelpuffer
+    2300022: Wand_links
+    2300024: Wand_rechts
+    3300000: Boden
+    3300002: Dach
+    3300004: Dichtung
+    3300006: Front
+    3300008: Front_Rahmen
+    3300010: Luke
+    3300012: Luke_Rahmen
+    3300014: Notoeffner1
+    3300016: Notoeffner2
+    3300018: Rahmen
+    3300020: Stapelpuffer
+    3300022: Wand_links
+    3300024: Wand_rechts
+    4300000: Boden
+    4300002: Dach
+    4300004: Dichtung
+    4300006: Front
+    4300008: Front_Rahmen
+    4300010: Luke
+    4300012: Luke_Rahmen
+    4300014: Notoeffner1
+    4300016: Notoeffner2
+    4300018: Rahmen
+    4300020: Stapelpuffer
+    4300022: Wand_links
+    4300024: Wand_rechts
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 
