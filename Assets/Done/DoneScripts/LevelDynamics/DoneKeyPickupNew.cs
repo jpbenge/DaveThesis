@@ -25,7 +25,7 @@ public class DoneKeyPickupNew : MonoBehaviour
 		{
 			// ... play the clip at the position of the key...
 			AudioSource.PlayClipAtPoint(keyGrab, transform.position);
-			
+			other.gameObject.SendMessage("OnGetKeyCard", SendMessageOptions.DontRequireReceiver);
 			// ... and destroy this gameobject.
         	Destroy(gameObject);
 		}
