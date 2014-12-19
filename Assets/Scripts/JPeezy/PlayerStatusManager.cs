@@ -42,25 +42,31 @@ public class PlayerStatusManager : MonoBehaviour {
 		if (curHealth == maxHealth)
 		{
 			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[5]);
+			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[5]);
 		}
 		else if (curHealth >= maxHealth*(5f/6f))
 		{
+			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[4]);
 			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[4]);
 		}
 		else if (curHealth >= maxHealth*(2f/3f))
 		{
 			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[3]);
+			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[3]);
 		}
 		else if (curHealth >= maxHealth*0.5f)
 		{
+			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[2]);
 			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[2]);
 		}
 		else if (curHealth >= maxHealth*(1f/3f))
 		{
 			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[1]);
+			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[1]);
 		}
 		else if (curHealth > 0)
 		{
+			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[0]);
 			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[0]);
 		}
 	}
@@ -71,6 +77,18 @@ public class PlayerStatusManager : MonoBehaviour {
 		if (curHealth <= 0)
 		{
 			OnDeath();
+		}
+	}
+
+	void OnHealthPickup(int amt)
+	{
+		if (curHealth + amt <= maxHealth)
+		{
+			curHealth += amt;
+		}
+		else
+		{
+			curHealth = maxHealth;
 		}
 	}
 

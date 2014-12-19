@@ -5,23 +5,27 @@ public class DoneLaserPlayerDetection : MonoBehaviour
 {
     private GameObject player;								// Reference to the player.
     private DoneLastPlayerSighting lastPlayerSighting;		// Reference to the global last sighting of the player.
-
+    public AudioClip sound;
+    public float soundVolume = 1f;
 
     void Awake ()
     {
 		// Setting up references.
-		player = GameObject.FindGameObjectWithTag(DoneTags.player);
+		player = GameObject.FindGameObjectWithTag("Player");
 		//lastPlayerSighting = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneLastPlayerSighting>();
     }
 
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
 		// If the beam is on...
         if(renderer.enabled)
-			// ... and if the colliding gameobject is the player...
+			// ... and if the colliding gameObject is the player...
             if(other.gameObject == player)
-				// ... set the last global sighting of the player to the colliding object's position.
-                lastPlayerSighting.position = other.transform.position;
+            {
+                other.gameObject.SendMessage("Slam", -2f*other.transform.forward, SendMessageOptions.RequireReceiver);
+                other.gameObject.SendMessage("OnHit", 20, SendMessageOptions.RequireReceiver);
+                AudioSource.PlayClipAtPoint(sound, transform.position, soundVolume);
+            }
     }
 }

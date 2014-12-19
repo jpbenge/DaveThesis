@@ -2,7 +2,7 @@ var height = 3.2;
 var speed = 2.0;
 var timingOffset = 0.0;
 var laserWidth = 12.0;
-var damage = 1;
+var damage = 20;
 var hitEffect : GameObject;
 
 private var originalPosition : Vector3;
@@ -10,6 +10,8 @@ private var hit : RaycastHit;
 private var lastHitTime = 0.0;
 
 var smoked = false;
+public var sound : AudioClip;
+public var soundVolume : float = 1;
 
 function Start ()
 {
@@ -29,7 +31,12 @@ function Update ()
 			Instantiate(hitEffect, hit.point, Quaternion.identity);
 			if (!smoked)
 			{
-				hit.collider.SendMessage("ApplyDamage", damage, SendMessageOptions.DontRequireReceiver);
+				if (sound)
+				{
+					AudioSource.PlayClipAtPoint(sound, transform.position, soundVolume);
+				}
+				hit.collider.SendMessage("OnHit", damage, SendMessageOptions.DontRequireReceiver);
+				hit.collider.SendMessage("Slam", -2f*hit.transform.forward, SendMessageOptions.DontRequireReceiver);
 				lastHitTime = Time.time;
 			}
 		}
