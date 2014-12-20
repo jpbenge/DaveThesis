@@ -27,11 +27,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 3.76627838e-07, y: -3.76627924e-07, z: .707106829, w: .707106709}
-  m_LocalPosition: {x: 54.7913017, y: 1.34021163, z: -39.1075172}
+  m_LocalRotation: {x: 3.76627867e-07, y: -3.76627952e-07, z: .707106888, w: .707106769}
+  m_LocalPosition: {x: 18.2240009, y: 1.67900002, z: -35.3699989}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!23 &2300000
 Renderer:
   m_ObjectHideFlags: 1
@@ -50,9 +51,8 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!33 &3300000
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -82,13 +82,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bd0e9bcbd1148551100850944295342, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c3d8d187c449b1448e3b326da02f737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupType: 1
-  amount: 1
-  sound: {fileID: 0}
-  soundVolume: 2
+  sound: {fileID: 8300000, guid: 3d64bea8d9a6346f59547d44c291afd6, type: 3}
+  soundVolume: 1
+  HealthAmount: 50
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ce56597e5e84a85a1c49f58a282c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  axis: 0
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

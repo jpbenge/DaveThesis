@@ -48,6 +48,7 @@ Transform:
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -59,6 +60,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
+  m_RootOrder: 0
 --- !u!23 &2300000
 Renderer:
   m_ObjectHideFlags: 1
@@ -78,9 +80,8 @@ Renderer:
   m_UseLightProbes: 1
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!33 &3300000
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -90,7 +91,7 @@ MeshFilter:
   m_Mesh: {fileID: 4300004, guid: e645b4c665b69d44786c3ad6098a3d91, type: 3}
 --- !u!95 &9500000
 Animator:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -99,9 +100,10 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: e645b4c665b69d44786c3ad6098a3d91, type: 3}
   m_Controller: {fileID: 9100000, guid: f55a555809d5e7847b4b8b450ed31879, type: 2}
   m_CullingMode: 1
+  m_UpdateMode: 0
   m_ApplyRootMotion: 0
-  m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &10800000
 Light:
   m_ObjectHideFlags: 1
@@ -148,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864800bedce1cd24fbea66f4662b8ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyGrab: {fileID: 0}
+  keyGrab: {fileID: 8300000, guid: a710a0cfdfda58249902f804d6c9ffb9, type: 3}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
