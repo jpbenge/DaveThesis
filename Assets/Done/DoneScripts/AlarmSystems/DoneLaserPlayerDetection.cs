@@ -25,7 +25,8 @@ public class DoneLaserPlayerDetection : MonoBehaviour
             {
                 other.gameObject.SendMessage("Slam", -2f*other.transform.forward, SendMessageOptions.RequireReceiver);
                 other.gameObject.SendMessage("OnHit", 20, SendMessageOptions.RequireReceiver);
-                AudioSource.PlayClipAtPoint(sound, transform.position, soundVolume);
+                if (sound)
+                    AudioSource.PlayClipAtPoint(sound, transform.position, soundVolume);
             }
     }
 }
