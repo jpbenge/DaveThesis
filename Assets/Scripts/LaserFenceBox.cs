@@ -14,6 +14,7 @@ public class LaserFenceBox : MonoBehaviour {
 	}
 
 	void OnExplosion () {
+		print("Splode");
 		laserFence.SetActive(false);
 	}
 }

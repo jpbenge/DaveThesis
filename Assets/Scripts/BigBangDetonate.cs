@@ -19,14 +19,12 @@ public class BigBangDetonate : MonoBehaviour {
 		{
 			GameObject clone = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
 			clone.AddComponent<DestroyAfterSeconds>();
-			RaycastHit[] hits = Physics.SphereCastAll(transform.position, 5f, transform.forward, 5);
-			if (hits.Length > 0)
-            {
-            	foreach (RaycastHit hit in hits)
-            	{
-            		print(hit.collider.gameObject);
-            		hit.collider.gameObject.SendMessage("OnExplosion",SendMessageOptions.DontRequireReceiver);
-        		}
+        	Collider[] hitColliders = Physics.OverlapSphere(transform.position, 2.5f);
+        	int i = 0;
+        	while (i < hitColliders.Length) 
+        	{
+            	hitColliders[i].gameObject.SendMessage("OnExplosion",SendMessageOptions.DontRequireReceiver);
+            	i++;
         	}
 			Destroy(gameObject);
 		}
