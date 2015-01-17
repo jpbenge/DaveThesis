@@ -1,13 +1,14 @@
 // Shader created with Shader Forge v1.02 
 // Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.02;sub:START;pass:START;ps:flbk:,lico:1,lgpr:1,nrmq:1,limd:1,uamb:True,mssp:True,lmpd:False,lprd:False,rprd:False,enco:False,frtr:True,vitr:True,dbil:False,rmgx:True,rpth:0,hqsc:True,hqlp:False,tesm:0,blpr:1,bsrc:3,bdst:7,culm:0,dpts:2,wrdp:False,ufog:True,aust:True,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:100,fgrf:500,ofsf:0,ofsu:0,f2p0:False;n:type:ShaderForge.SFN_Final,id:6319,x:33069,y:32710,varname:node_6319,prsc:2|diff-8341-RGB,spec-3531-OUT,normal-1807-RGB,amdfl-8257-OUT,alpha-6222-OUT,refract-9233-OUT;n:type:ShaderForge.SFN_Tex2d,id:8341,x:32441,y:32617,ptovrint:False,ptlb:Diffuse,ptin:_Diffuse,varname:node_8341,prsc:2,tex:866f143fd05a64e349dded3f9c9eeb77,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:1807,x:32319,y:32988,ptovrint:False,ptlb:Normal,ptin:_Normal,varname:node_8341,prsc:2,tex:973fb17297d010146af4af0cd454610b,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Slider,id:6222,x:32283,y:33176,ptovrint:False,ptlb:Opacity,ptin:_Opacity,varname:node_6222,prsc:2,min:0,cur:0.1196586,max:1;n:type:ShaderForge.SFN_Append,id:9233,x:32865,y:33039,varname:node_9233,prsc:2|A-2004-OUT,B-2004-OUT;n:type:ShaderForge.SFN_Multiply,id:2004,x:32706,y:33024,varname:node_2004,prsc:2|A-8341-R,B-4301-OUT;n:type:ShaderForge.SFN_Vector1,id:4301,x:32509,y:33058,varname:node_4301,prsc:2,v1:0.05;n:type:ShaderForge.SFN_Vector1,id:8257,x:32881,y:32878,varname:node_8257,prsc:2,v1:0.5;n:type:ShaderForge.SFN_Multiply,id:3531,x:32806,y:32758,varname:node_3531,prsc:2|A-8341-B,B-67-OUT;n:type:ShaderForge.SFN_Vector1,id:67,x:32499,y:32797,varname:node_67,prsc:2,v1:10;proporder:8341-1807-6222;pass:END;sub:END;*/
+/*SF_DATA;ver:1.02;sub:START;pass:START;ps:flbk:,lico:1,lgpr:1,nrmq:1,limd:1,uamb:True,mssp:True,lmpd:False,lprd:False,rprd:False,enco:False,frtr:True,vitr:True,dbil:False,rmgx:True,rpth:0,hqsc:True,hqlp:False,tesm:0,blpr:1,bsrc:3,bdst:7,culm:0,dpts:2,wrdp:False,ufog:True,aust:True,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:100,fgrf:500,ofsf:0,ofsu:0,f2p0:True;n:type:ShaderForge.SFN_Final,id:6319,x:33069,y:32710,varname:node_6319,prsc:2|diff-8341-RGB,spec-3531-OUT,normal-1807-RGB,amdfl-8257-OUT,alpha-6222-OUT,refract-1335-OUT;n:type:ShaderForge.SFN_Tex2d,id:8341,x:32441,y:32617,ptovrint:False,ptlb:Diffuse,ptin:_Diffuse,varname:node_8341,prsc:2,tex:866f143fd05a64e349dded3f9c9eeb77,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:1807,x:32319,y:32988,ptovrint:False,ptlb:Normal,ptin:_Normal,varname:node_8341,prsc:2,tex:973fb17297d010146af4af0cd454610b,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Slider,id:6222,x:32283,y:33176,ptovrint:False,ptlb:Opacity,ptin:_Opacity,varname:node_6222,prsc:2,min:0,cur:0.1196586,max:1;n:type:ShaderForge.SFN_Vector1,id:8257,x:32881,y:32878,varname:node_8257,prsc:2,v1:0.5;n:type:ShaderForge.SFN_Multiply,id:3531,x:32806,y:32758,varname:node_3531,prsc:2|A-8341-B,B-67-OUT;n:type:ShaderForge.SFN_Vector1,id:67,x:32499,y:32797,varname:node_67,prsc:2,v1:10;n:type:ShaderForge.SFN_ValueProperty,id:2104,x:32440,y:32977,ptovrint:False,ptlb:node_2104,ptin:_node_2104,varname:node_2104,prsc:2,glob:False,v1:0.05;n:type:ShaderForge.SFN_Multiply,id:6566,x:32693,y:33006,varname:node_6566,prsc:2|A-8341-R,B-2104-OUT;n:type:ShaderForge.SFN_Append,id:1335,x:32861,y:33006,varname:node_1335,prsc:2|A-6566-OUT,B-6566-OUT;proporder:8341-1807-6222-2104;pass:END;sub:END;*/
 
 Shader "Shader Forge/WaterToIce_Fallback" {
     Properties {
         _Diffuse ("Diffuse", 2D) = "white" {}
         _Normal ("Normal", 2D) = "bump" {}
         _Opacity ("Opacity", Range(0, 1)) = 0.1196586
+        _node_2104 ("node_2104", Float ) = 0.05
         [HideInInspector]_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
     }
     SubShader {
@@ -32,12 +33,13 @@ Shader "Shader Forge/WaterToIce_Fallback" {
             #include "UnityCG.cginc"
             #pragma multi_compile_fwdbase
             #pragma exclude_renderers xbox360 ps3 flash d3d11_9x 
-            #pragma target 3.0
+            #pragma target 2.0
             uniform float4 _LightColor0;
             uniform sampler2D _GrabTexture;
             uniform sampler2D _Diffuse; uniform float4 _Diffuse_ST;
             uniform sampler2D _Normal; uniform float4 _Normal_ST;
             uniform float _Opacity;
+            uniform float _node_2104;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -75,8 +77,8 @@ Shader "Shader Forge/WaterToIce_Fallback" {
                 i.screenPos = float4( i.screenPos.xy / i.screenPos.w, 0, 0 );
                 i.screenPos.y *= _ProjectionParams.x;
                 float4 _Diffuse_var = tex2D(_Diffuse,TRANSFORM_TEX(i.uv0, _Diffuse));
-                float node_2004 = (_Diffuse_var.r*0.05);
-                float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + float2(node_2004,node_2004);
+                float node_6566 = (_Diffuse_var.r*_node_2104);
+                float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + float2(node_6566,node_6566);
                 float4 sceneColor = tex2D(_GrabTexture, sceneUVs);
                 float3x3 tangentTransform = float3x3( i.tangentDir, i.binormalDir, i.normalDir);
 /////// Vectors:
@@ -130,12 +132,13 @@ Shader "Shader Forge/WaterToIce_Fallback" {
             #include "AutoLight.cginc"
             #pragma multi_compile_fwdadd
             #pragma exclude_renderers xbox360 ps3 flash d3d11_9x 
-            #pragma target 3.0
+            #pragma target 2.0
             uniform float4 _LightColor0;
             uniform sampler2D _GrabTexture;
             uniform sampler2D _Diffuse; uniform float4 _Diffuse_ST;
             uniform sampler2D _Normal; uniform float4 _Normal_ST;
             uniform float _Opacity;
+            uniform float _node_2104;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -175,8 +178,8 @@ Shader "Shader Forge/WaterToIce_Fallback" {
                 i.screenPos = float4( i.screenPos.xy / i.screenPos.w, 0, 0 );
                 i.screenPos.y *= _ProjectionParams.x;
                 float4 _Diffuse_var = tex2D(_Diffuse,TRANSFORM_TEX(i.uv0, _Diffuse));
-                float node_2004 = (_Diffuse_var.r*0.05);
-                float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + float2(node_2004,node_2004);
+                float node_6566 = (_Diffuse_var.r*_node_2104);
+                float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + float2(node_6566,node_6566);
                 float4 sceneColor = tex2D(_GrabTexture, sceneUVs);
                 float3x3 tangentTransform = float3x3( i.tangentDir, i.binormalDir, i.normalDir);
 /////// Vectors:
