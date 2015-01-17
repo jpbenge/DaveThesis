@@ -22,20 +22,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Normal
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Diffuse
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _BaseDiffuse
         second:
           m_Texture: {fileID: 2800000, guid: b0a0186890be9b647bd1a3623cbd86a4, type: 3}
@@ -52,14 +38,14 @@ Material:
         first:
           name: _BaseSpec
         second:
-          m_Texture: {fileID: 2800000, guid: b0a0186890be9b647bd1a3623cbd86a4, type: 3}
+          m_Texture: {fileID: 2800000, guid: 0ee54bfb117e190429f16c86efc6724a, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _OilDiffuse
         second:
-          m_Texture: {fileID: 2800000, guid: 034da740aef294e518e6d974983b0131, type: 3}
+          m_Texture: {fileID: 2800000, guid: 32e0f358142db4d66b0b2299b31317cf, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -94,28 +80,42 @@ Material:
         first:
           name: _IceSpec
         second:
-          m_Texture: {fileID: 2800000, guid: fb364cf83766e47ac861bd2e0261985c, type: 3}
+          m_Texture: {fileID: 2800000, guid: da2e28888ae774f5e9d37174aec8e22b, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _WaterDiffuse
         second:
-          m_Texture: {fileID: 2800000, guid: c17d33fd0f7d8474caf82bdc156a1133, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _WaterNormal
         second:
-          m_Texture: {fileID: 2800000, guid: a53cf5449d11a15d1100a04b44295342, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _WaterSpec
         second:
-          m_Texture: {fileID: 2800000, guid: 144ca5548aed247ceb030066082032e3, type: 3}
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Diffuse
+        second:
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -150,35 +150,35 @@ Material:
       data:
         first:
           name: _BaseShininess
-        second: .732142866
+        second: .982142866
       data:
         first:
           name: _OilShininess
-        second: 0
+        second: .214285716
       data:
         first:
           name: _OilPower
-        second: .5431692
-      data:
-        first:
-          name: _Oil
-        second: 1
-      data:
-        first:
-          name: _IceShininess
         second: 0
       data:
         first:
+          name: _Oil
+        second: .142857149
+      data:
+        first:
+          name: _IceShininess
+        second: .803571403
+      data:
+        first:
           name: _IceAmbientDiff
-        second: .357142866
+        second: .517857134
       data:
         first:
           name: _Ice
-        second: .607142866
+        second: 1
       data:
         first:
           name: _WaterShininess
-        second: 1
+        second: 0
       data:
         first:
           name: _Water
