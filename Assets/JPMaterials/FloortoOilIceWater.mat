@@ -29,6 +29,8 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+<<<<<<< HEAD
+=======
           name: _Diffuse
         second:
           m_Texture: {fileID: 0}
@@ -36,6 +38,7 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+>>>>>>> 91dc9a282f2d945f9a709de0284ef6a6bf42b4c4
           name: _BaseDiffuse
         second:
           m_Texture: {fileID: 2800000, guid: b0a0186890be9b647bd1a3623cbd86a4, type: 3}
@@ -120,6 +123,16 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+<<<<<<< HEAD
+          name: _Diffuse
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+=======
+>>>>>>> 91dc9a282f2d945f9a709de0284ef6a6bf42b4c4
           name: _node_3091
         second:
           m_Texture: {fileID: 0}
@@ -150,7 +163,7 @@ Material:
       data:
         first:
           name: _BaseShininess
-        second: .982142866
+        second: .821428597
       data:
         first:
           name: _OilShininess
@@ -158,11 +171,19 @@ Material:
       data:
         first:
           name: _OilPower
+<<<<<<< HEAD
+        second: .107142858
+      data:
+        first:
+          name: _Oil
+        second: 0
+=======
         second: .375
       data:
         first:
           name: _Oil
         second: 1
+>>>>>>> 91dc9a282f2d945f9a709de0284ef6a6bf42b4c4
       data:
         first:
           name: _IceShininess
