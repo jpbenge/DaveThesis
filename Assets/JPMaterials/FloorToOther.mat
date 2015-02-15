@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: FloorToOther
+  m_Shader: {fileID: 4800000, guid: 836b43b5438d0384982575e256c76703, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BaseDiffuse
+        second:
+          m_Texture: {fileID: 2800000, guid: b0a0186890be9b647bd1a3623cbd86a4, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BaseNormal
+        second:
+          m_Texture: {fileID: 2800000, guid: dd243bc6a69423d43a7d11b793882fe3, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BaseSpec
+        second:
+          m_Texture: {fileID: 2800000, guid: e6c2ed0939dad448b88f8393661419b8, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _IceDiffuse
+        second:
+          m_Texture: {fileID: 2800000, guid: 866f143fd05a64e349dded3f9c9eeb77, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _IceNormal
+        second:
+          m_Texture: {fileID: 2800000, guid: 70f442b36a8b04fcda0bfa4edf5adfa6, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _IceSpec
+        second:
+          m_Texture: {fileID: 2800000, guid: da2e28888ae774f5e9d37174aec8e22b, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _OtherNormal
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _OtherDiffuse
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _OtherSpec
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _BaseShininess
+        second: .196428567
+      data:
+        first:
+          name: _IceShininess
+        second: 3.193106e-09
+      data:
+        first:
+          name: _Ice
+        second: 0
+      data:
+        first:
+          name: _OtherShininess
+        second: 0
+      data:
+        first:
+          name: _Transition
+        second: 0
+      data:
+        first:
+          name: _IceBaseDiffuse
+        second: .428571433
+      data:
+        first:
+          name: _IceAmbDiffuse
+        second: .375
+      data:
+        first:
+          name: _BaseAmbDiffuse
+        second: .125
+      data:
+        first:
+          name: _node_5508
+        second: 1
+      data:
+        first:
+          name: _NormalStrength
+        second: 0
+      data:
+        first:
+          name: _node_5508_copy
+        second: 1
+      data:
+        first:
+          name: _OtherAmbDiffuse
+        second: 0
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _node_490
+        second: {r: .5, g: .5, b: .5, a: 1}
+      data:
+        first:
+          name: _BaseSpecColor
+        second: {r: .501960814, g: .501960814, b: .501960814, a: 1}
+      data:
+        first:
+          name: _node_5865
+        second: {r: 1, g: 1, b: .113725491, a: 1}

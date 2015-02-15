@@ -17,5 +17,6 @@ function Update ()
 		{
 			AudioSource.PlayClipAtPoint(sound, transform.position, soundVolume);
 		}
+		gameObject.SendMessage("OnCloak",SendMessageOptions.RequireReceiver);
 	}
 }
