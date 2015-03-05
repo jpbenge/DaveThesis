@@ -13,13 +13,16 @@ public class PlayerStatusManager : MonoBehaviour {
 	public GameObject spawnPoint;
 	public GameObject mCam;
 	public Texture2D[] healthImages;
+	public Texture2D[] WeaponImages;
 	public int maxHealth = 100;
 	public int curHealth;
+	PlayerWeaponManager wManager;
 
 	// Use this for initialization
 	void Start () {
 		curHealth = maxHealth;
 		numKeyCards = 0;
+		wManager = GetComponent<PlayerWeaponManager>();
 	}
 	
 	// Update is called once per frame
@@ -69,6 +72,7 @@ public class PlayerStatusManager : MonoBehaviour {
 			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[0]);
 			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[0]);
 		}
+		GUI.DrawTexture(new Rect(350,990,168,168),WeaponImages[wManager.curWeapon]);
 	}
 
 	void OnHit(int dmg)
@@ -95,6 +99,7 @@ public class PlayerStatusManager : MonoBehaviour {
 	void OnDeath()
 	{
 		mCam.SendMessage("OnDeath", SendMessageOptions.DontRequireReceiver);
+		transform.localEulerAngles = spawnPoint.transform.localEulerAngles;
 		transform.position = spawnPoint.transform.position;
 		Respawn();
 	}

@@ -134,7 +134,8 @@ public class showRadialMenu : MonoBehaviour{
 			{  	
 				//Checks if the menu elements have to be drawn just once (in the position desired, to avoid the "dragging" effect)
 				if(!showedMenuSelectionOnce){
- 					radialMenuPosition = Event.current.mousePosition;
+ 					//radialMenuPosition = Event.current.mousePosition;
+ 					radialMenuPosition = new Vector2(Screen.width / 2f, Screen.height / 2f);
 				}
 			
 				//Checks if the click + the offset of the custom menu goes off the screen

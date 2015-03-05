@@ -5,6 +5,8 @@ public class ConsoleToggleControl : MonoBehaviour {
 	public bool isActive = false;
 	private bool inTrigger = false;
 	public GameObject[] linkedObjects;
+	public AudioClip toggleSound;
+	public float soundVolume = 1;
  	// Use this for initialization
 	void Start () {
 		inTrigger = false;
@@ -27,6 +29,10 @@ public class ConsoleToggleControl : MonoBehaviour {
 					Debug.Log("Deactivate");
 					SendDeactivateMessage();
 					isActive = false;
+				}
+				if (toggleSound)
+				{
+					AudioSource.PlayClipAtPoint(toggleSound, transform.position, soundVolume);
 				}
 			}
 		}

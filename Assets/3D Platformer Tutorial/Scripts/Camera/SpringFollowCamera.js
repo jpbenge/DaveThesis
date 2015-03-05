@@ -186,4 +186,11 @@ function AngleDistance (a : float, b : float)
 	return Mathf.Abs(b - a);
 }
 
+function FaceCamera()
+{
+	//velocity = Vector3.zero;
+	//isSnapping = true;
+	//ApplySnapping (target.position + centerOffset + new Vector3(0,0,200f));
+}
+
 @script AddComponentMenu ("Third Person Camera/Spring Follow Camera")

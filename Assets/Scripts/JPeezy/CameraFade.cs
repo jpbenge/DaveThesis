@@ -27,5 +27,6 @@ public class CameraFade : MonoBehaviour {
 	void FadeIn()
 	{
 		iTween.CameraFadeTo(0,1f);
+		gameObject.SendMessage("FaceCamera", SendMessageOptions.DontRequireReceiver);
 	}
 }
