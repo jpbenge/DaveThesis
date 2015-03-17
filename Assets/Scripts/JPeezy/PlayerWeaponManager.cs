@@ -10,15 +10,19 @@ public class PlayerWeaponManager : MonoBehaviour {
 	public int curWeapon;
 	public Transform weaponSpawnPoint;
 	public Transform wileySpawnPoint;
+	bool newTrigger = false;
+	bool triggerDown = false;
 	
 	// Use this for initialization
 	void Start () {
 		curWeapon = 0;
+		newTrigger = false;
+		triggerDown = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonUp(1))
+		if(Input.GetMouseButtonUp(1) || Input.GetButtonUp("WeaponSelect"))
 		{
 			switch (showRadialMenu.getSelection()){
 				//Nothing is selected
@@ -30,16 +34,19 @@ public class PlayerWeaponManager : MonoBehaviour {
 						break;
 			}
 		}
-
-
-		if (Input.GetButtonDown("Fire1"))
-		{
+		bool newTrigger = Input.GetAxis("Run/Shoot") > 0f;
+		if (Input.GetButtonDown("Shoot") || (!triggerDown && newTrigger)) {
 			FireWeapon(curWeapon);
 		}
+		triggerDown = newTrigger;
 	}
 	void FireWeapon(int w)
 	{
 		GameObject obj;
+		if (w == 11)
+		{
+			gameObject.SendMessage("OnCloak");
+		}
 		if (w == 12)
 		{
 			obj = (GameObject)Instantiate(weapons[w], wileySpawnPoint.position, Quaternion.identity);

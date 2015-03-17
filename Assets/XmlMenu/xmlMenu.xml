@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <RadialMenu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <numberOfElements>13</numberOfElements>
-  <menuRadius>120.519478</menuRadius>
-  <elementRadius>61.0909081</elementRadius>
+  <menuRadius>220</menuRadius>
+  <elementRadius>44</elementRadius>
   <Elements>
     <Element>
       <elementTexture>H2OBurst</elementTexture>

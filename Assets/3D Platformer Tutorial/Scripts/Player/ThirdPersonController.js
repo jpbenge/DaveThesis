@@ -182,7 +182,7 @@ function UpdateSmoothedMovementDirection ()
 		var targetSpeed = Mathf.Min(targetDirection.magnitude, 1.0);
 	
 		// Pick speed modifier
-		if (Input.GetButton ("Fire3"))
+		if (Input.GetButton ("Run") || Input.GetAxis("Run/Shoot") < 0)
 		{
 			targetSpeed *= runSpeed;
 		}

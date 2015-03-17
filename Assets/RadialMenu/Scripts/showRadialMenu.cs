@@ -45,6 +45,8 @@ public class showRadialMenu : MonoBehaviour{
 	//The selection made by the user, selecting an element of the menu
 	static private int selection;
 	
+	static private int tempSelection;
+
 	//Represent the xml file containing the menu specifications
 	RadialMenuXML xmlMenu;
 	
@@ -53,6 +55,7 @@ public class showRadialMenu : MonoBehaviour{
 	void Start () {
 		//Defines the very first selection
 		selection = -1;
+		tempSelection = -1;
 
 		//Reads the xml file containing the menu specifications
 		xmlMenu = RadialMenuXML.Load("Assets/XmlMenu/xmlMenu.xml");
@@ -93,7 +96,7 @@ public class showRadialMenu : MonoBehaviour{
 	void Update () {	
 		
 		//Checks if RMB is released
-   		if(Input.GetMouseButtonUp(1))
+   		if(Input.GetMouseButtonUp(1) || Input.GetButtonUp("WeaponSelect"))
 		{   
 			//Makes the menu disappear
 			showMenuSelection = false;
@@ -101,7 +104,7 @@ public class showRadialMenu : MonoBehaviour{
     	}
 		else 
 			//Checks if RMB is pressed
-        	if(Input.GetMouseButtonDown(1))
+        	if(Input.GetMouseButtonDown(1) || Input.GetButtonDown("WeaponSelect"))
 			{   
 				//Makes the menu appear
 				showMenuSelection = true;
@@ -123,10 +126,15 @@ public class showRadialMenu : MonoBehaviour{
 	static public int getSelection (){
 		return selection;
 	}
+
+	static public int getTempSelection (){
+		return tempSelection;
+	}
 	
 		// SHOWING THE RADIAL MENU
 	
 	void OnGUI() {
+		
 		//Checks every time if the configuration file is present
 		if(xmlMenu != null){
 			//Checks if it is allowed to display the menu
@@ -178,9 +186,21 @@ public class showRadialMenu : MonoBehaviour{
 					//Increase the angle offset (to have the angle of the next element)
 					actualAngle += angleOffset;
 				}
-			
+				for(var s = 0; s < numElements; s++)
+				{
+					if (radialMenuButtons[s].Contains(Event.current.mousePosition)){
+						//Saves the selection (the element number, not the index) in the proper varaible
+						tempSelection = s;
+						Rect bigRect = new Rect(radialMenuButtons[s].x - ((1f/3f)*radialMenuButtons[s].width)
+							,radialMenuButtons[s].y - ((1f/3f)*radialMenuButtons[s].height)
+							,radialMenuButtons[s].width*1.5f
+							,radialMenuButtons[s].height*1.5f);
+						GUI.DrawTexture(bigRect, textures[s]);
+					}
+
+				}
 				//Checks if RMB is released
-				if(Input.GetMouseButtonUp(1))
+				if(Input.GetMouseButtonUp(1) || Input.GetButtonUp("WeaponSelect"))
 				{   
 					//Loop on every menu element until one element is selected or they are over
 					for(var i = 0; i < numElements && !selected; i++)
