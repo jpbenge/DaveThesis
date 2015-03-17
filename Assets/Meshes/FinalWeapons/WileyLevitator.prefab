@@ -63,6 +63,7 @@ GameObject:
   - 64: {fileID: 6400000}
   - 111: {fileID: 11100002}
   - 54: {fileID: 5468520}
+  - 114: {fileID: 11457876}
   m_Layer: 0
   m_Name: WileyLevitator
   m_TagString: Untagged
@@ -161,7 +162,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!64 &6400000
 MeshCollider:
@@ -251,6 +252,21 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11457876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6454930c65042429a9629e3e596a61a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis: 1
+  startOffset: 0
+  moveSpeed: 1
+  moveDistance: 2
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
