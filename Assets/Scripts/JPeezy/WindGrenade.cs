@@ -32,8 +32,9 @@ public class WindGrenade : MonoBehaviour {
 		while (i < hitColliders.Length)
         {
         	if (hitColliders[i].transform.parent != null)
+        	{
             	hitColliders[i].transform.parent.gameObject.SendMessage("OnWind",SendMessageOptions.DontRequireReceiver);
-            else
+        	}
             	hitColliders[i].gameObject.SendMessage("OnWind",SendMessageOptions.DontRequireReceiver);
            	i++;
         }

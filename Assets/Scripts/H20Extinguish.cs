@@ -32,9 +32,10 @@ public class H20Extinguish : MonoBehaviour {
 		while (i < hitColliders.Length)
         {
         	if (hitColliders[i].transform.parent != null)
+            {
             	hitColliders[i].transform.parent.gameObject.SendMessage("Extinguish",SendMessageOptions.DontRequireReceiver);
-            else
-            	hitColliders[i].gameObject.SendMessage("Extinguish",SendMessageOptions.DontRequireReceiver);
+            }
+            hitColliders[i].gameObject.SendMessage("Extinguish",SendMessageOptions.DontRequireReceiver);
            	i++;
         }
 	}

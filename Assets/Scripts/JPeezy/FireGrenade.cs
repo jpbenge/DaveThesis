@@ -33,9 +33,10 @@ public class FireGrenade : MonoBehaviour {
 		while (i < hitColliders.Length)
         {
         	if (hitColliders[i].transform.parent != null)
+        	{
             	hitColliders[i].transform.parent.gameObject.SendMessage("OnFire",SendMessageOptions.DontRequireReceiver);
-            else
-            	hitColliders[i].gameObject.SendMessage("OnFire",SendMessageOptions.DontRequireReceiver);
+            }
+            hitColliders[i].gameObject.SendMessage("OnFire",SendMessageOptions.DontRequireReceiver);
            	i++;
         }
 	}

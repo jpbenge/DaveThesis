@@ -32,9 +32,10 @@ public class OilGrenade : MonoBehaviour {
 		while (i < hitColliders.Length)
         {
         	if (hitColliders[i].transform.parent != null)
+        	{
             	hitColliders[i].transform.parent.gameObject.SendMessage("OnOil",SendMessageOptions.DontRequireReceiver);
-            else
-            	hitColliders[i].gameObject.SendMessage("OnOil",SendMessageOptions.DontRequireReceiver);
+            }
+            hitColliders[i].gameObject.SendMessage("OnOil",SendMessageOptions.DontRequireReceiver);
            	i++;
         }
 	}

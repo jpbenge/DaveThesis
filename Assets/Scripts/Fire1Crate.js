@@ -1,11 +1,13 @@
 #pragma strict
-
+@script RequireComponent (BoxCollider)
+var damage = 15;
 var innerCore : ParticleEmitter;
 var outerCore : ParticleEmitter;
 var smoke : ParticleEmitter;
 var extinguishSound : AudioClip;
 var oilSound : AudioClip;
 var flareUpTime : float = 4.0f;
+private var onFire : boolean = true;
 private var flaringUp : boolean = false;
 private var flareUpStart : float = 0f;
 private var innerMin : float;
@@ -14,8 +16,12 @@ private var innerMax : float;
 private var outerMax : float;
 private var smokeMin : float;
 private var smokeMax : float;
+private var lastHitTime : float;
+var hitSound : AudioClip;
+
 
 function Start () {
+	onFire = true;
 	flaringUp = false;
 	innerMin = innerCore.minEnergy;
 	innerMax = innerCore.maxEnergy;
@@ -32,6 +38,7 @@ function Update () {
 	}
 }
 function Extinguish() {
+	onFire = false;
 	innerCore.emit = false;
 	outerCore.emit = false;
 	smoke.emit = false;
@@ -43,6 +50,7 @@ function Extinguish() {
 
 function ExtinguishTemp(relightTime : float)
 {
+	onFire = false;
 	innerCore.emit = false;
 	outerCore.emit = false;
 	smoke.emit = false;
@@ -94,9 +102,24 @@ function OnFire()
 	innerCore.emit = true;
 	outerCore.emit = true;
 	smoke.emit = true;
+	onFire = true;
 }
 
 function OnWind()
 {
 	ExtinguishTemp(5.0f);
+}
+
+function OnTriggerEnter(hit : Collider)
+{
+	if (onFire && Time.time > lastHitTime + 0.25 && hit.collider.tag == "Player")
+	{
+		if (hitSound)
+		{
+			AudioSource.PlayClipAtPoint(hitSound, transform.position, 1f);
+		}
+		hit.collider.SendMessage("OnHit", damage, SendMessageOptions.DontRequireReceiver);
+		hit.collider.SendMessage("Slam", -2f*hit.transform.forward, SendMessageOptions.DontRequireReceiver);
+		lastHitTime = Time.time;
+	}
 }
