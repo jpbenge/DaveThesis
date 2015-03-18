@@ -72,7 +72,7 @@ public class PlayerStatusManager : MonoBehaviour {
 			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[0]);
 			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[0]);
 		}
-		GUI.DrawTexture(new Rect(350,990,168,168),WeaponImages[wManager.curWeapon]);
+		GUI.DrawTexture(new Rect(375,1010,120,120),WeaponImages[wManager.curWeapon]);
 	}
 
 	void OnHit(int dmg)

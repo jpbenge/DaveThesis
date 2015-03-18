@@ -22,17 +22,14 @@ public class PlayerWeaponManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonUp(1) || Input.GetButtonUp("WeaponSelect"))
-		{
-			switch (showRadialMenu.getSelection()){
-				//Nothing is selected
-				case -1: //Do nothing
-						 break;
-				default: 
-						print(showRadialMenu.getSelection()-1);
-						curWeapon = showRadialMenu.getSelection()-1;
-						break;
-			}
+		switch (showRadialMenu.getSelection()){
+			//Nothing is selected
+			case -1: //Do nothing
+				break;
+			default:
+				//print(showRadialMenu.getSelection()-1);
+				curWeapon = showRadialMenu.getSelection()-1;
+				break;
 		}
 		bool newTrigger = Input.GetAxis("Run/Shoot") > 0f;
 		if (Input.GetButtonDown("Shoot") || (!triggerDown && newTrigger)) {
@@ -60,5 +57,10 @@ public class PlayerWeaponManager : MonoBehaviour {
 		{
 			AudioSource.PlayClipAtPoint(weaponSounds[w], transform.position, weaponVolume);
 		}
+	}
+
+	void WeaponUpdate()
+	{
+		curWeapon = showRadialMenu.getSelection()-1;
 	}
 }

@@ -52,6 +52,11 @@ public class showRadialMenu : MonoBehaviour{
 	
 		// FIRST INTIALIZATION
 	
+	private Vector2 stickPos;
+	public float widthMult = 5.6f;
+	public float heightMult = 2.4f;
+	private bool weaponButtonUp;
+
 	void Start () {
 		//Defines the very first selection
 		selection = -1;
@@ -93,18 +98,17 @@ public class showRadialMenu : MonoBehaviour{
 	
 		// THIS CODE IS LOOPED DURING EXECUTION
 	
-	void Update () {	
+	void Update () {
 		
 		//Checks if RMB is released
    		if(Input.GetMouseButtonUp(1) || Input.GetButtonUp("WeaponSelect"))
 		{   
 			//Makes the menu disappear
-			showMenuSelection = false;
+			//showMenuSelection = false;
 			showedMenuSelectionOnce = true;
-    	}
-		else 
-			//Checks if RMB is pressed
-        	if(Input.GetMouseButtonDown(1) || Input.GetButtonDown("WeaponSelect"))
+			weaponButtonUp = true;
+    	} //Checks if RMB is pressed
+		else if(Input.GetMouseButtonDown(1) || Input.GetButtonDown("WeaponSelect"))
 			{   
 				//Makes the menu appear
 				showMenuSelection = true;
@@ -134,7 +138,9 @@ public class showRadialMenu : MonoBehaviour{
 		// SHOWING THE RADIAL MENU
 	
 	void OnGUI() {
-		
+		float stickX = (Screen.width / 2f) + (Input.GetAxis("RightX")*(Screen.width / widthMult));
+		float stickY = (Screen.height / 2f) - (Input.GetAxis("RightY")*(Screen.height / heightMult));
+		stickPos = new Vector2(stickX, stickY);
 		//Checks every time if the configuration file is present
 		if(xmlMenu != null){
 			//Checks if it is allowed to display the menu
@@ -188,7 +194,7 @@ public class showRadialMenu : MonoBehaviour{
 				}
 				for(var s = 0; s < numElements; s++)
 				{
-					if (radialMenuButtons[s].Contains(Event.current.mousePosition)){
+					if (radialMenuButtons[s].Contains(Event.current.mousePosition) || radialMenuButtons[s].Contains(stickPos)){
 						//Saves the selection (the element number, not the index) in the proper varaible
 						tempSelection = s;
 						Rect bigRect = new Rect(radialMenuButtons[s].x - ((1f/3f)*radialMenuButtons[s].width)
@@ -200,21 +206,29 @@ public class showRadialMenu : MonoBehaviour{
 
 				}
 				//Checks if RMB is released
-				if(Input.GetMouseButtonUp(1) || Input.GetButtonUp("WeaponSelect"))
+				if(Input.GetMouseButtonUp(1) || weaponButtonUp)
 				{   
+
 					//Loop on every menu element until one element is selected or they are over
 					for(var i = 0; i < numElements && !selected; i++)
+					{
 						//Checks if the element menu is selected
-						if (radialMenuButtons[i].Contains(Event.current.mousePosition)){
+						if (radialMenuButtons[i].Contains(Event.current.mousePosition) || radialMenuButtons[i].Contains(stickPos))
+						{
 							//Saves the selection (the element number, not the index) in the proper varaible
 							selection = i + 1;
 							//Now something is selected
 							selected = true;
 						}
+					}
 					//Checks if no element of the menu was selected
 					if(!selected)
+					{
 						//Saves a standard value (-1) to memorize that nothing was selected
 						selection = -1;
+					}
+					weaponButtonUp = false;
+					showMenuSelection = false;
     			}
 			
 				//Memorizes that the menu has been displayed in the proper position
