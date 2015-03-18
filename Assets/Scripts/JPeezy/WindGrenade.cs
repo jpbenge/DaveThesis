@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OilGrenade : MonoBehaviour {
+public class WindGrenade : MonoBehaviour {
 
 	float startTime = 0;
 	public float endTime = 1f;
@@ -18,13 +18,13 @@ public class OilGrenade : MonoBehaviour {
 		{
 			if (!ended)
 			{
-				Flow();
+				Wind();
 				ended = true;
 			}
 		}
 	}
 
-	void Flow()
+	void Wind()
 	{
 		Collider[] hitColliders = Physics.OverlapSphere(transform.position, 2.2f);
 		
@@ -32,9 +32,9 @@ public class OilGrenade : MonoBehaviour {
 		while (i < hitColliders.Length)
         {
         	if (hitColliders[i].transform.parent != null)
-            	hitColliders[i].transform.parent.gameObject.SendMessage("OnOil",SendMessageOptions.DontRequireReceiver);
+            	hitColliders[i].transform.parent.gameObject.SendMessage("OnWind",SendMessageOptions.DontRequireReceiver);
             else
-            	hitColliders[i].gameObject.SendMessage("OnOil",SendMessageOptions.DontRequireReceiver);
+            	hitColliders[i].gameObject.SendMessage("OnWind",SendMessageOptions.DontRequireReceiver);
            	i++;
         }
 	}

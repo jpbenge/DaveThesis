@@ -3,16 +3,100 @@
 var innerCore : ParticleEmitter;
 var outerCore : ParticleEmitter;
 var smoke : ParticleEmitter;
-function Start () {
+var extinguishSound : AudioClip;
+var oilSound : AudioClip;
+var flareUpTime : float = 4.0f;
+private var flaringUp : boolean = false;
+private var flareUpStart : float = 0f;
+private var innerMin : float;
+private var outerMin : float;
+private var innerMax : float;
+private var outerMax : float;
+private var smokeMin : float;
+private var smokeMax : float;
 
+function Start () {
+	flaringUp = false;
+	innerMin = innerCore.minEnergy;
+	innerMax = innerCore.maxEnergy;
+	outerMin = outerCore.minEnergy;
+	outerMax = outerCore.maxEnergy;
+	smokeMin = smoke.minEnergy;
+	smokeMax = smoke.maxEnergy;
 }
 
 function Update () {
-
+	if (flaringUp && Time.time >= flareUpStart + flareUpTime)
+	{
+		UnFlare();
+	}
 }
 function Extinguish() {
-
 	innerCore.emit = false;
 	outerCore.emit = false;
 	smoke.emit = false;
+	if (extinguishSound)
+	{
+		AudioSource.PlayClipAtPoint(extinguishSound,transform.position);
+	}
+}
+
+function ExtinguishTemp(relightTime : float)
+{
+	innerCore.emit = false;
+	outerCore.emit = false;
+	smoke.emit = false;
+	if (extinguishSound)
+	{
+		AudioSource.PlayClipAtPoint(extinguishSound,transform.position);
+	}
+	Invoke("OnFire",relightTime);
+}
+
+function OnOil()
+{
+	if (!flaringUp)
+	{
+		FlareUp();
+	}
+	else
+	{
+		flareUpStart = Time.time;
+	}
+}
+
+function FlareUp()
+{
+	flaringUp = true;
+	flareUpStart = Time.time;
+	innerCore.minEnergy = innerMin*2.5f;
+	innerCore.maxEnergy = innerMax*2.5f;
+	outerCore.minEnergy = outerMin*2.5f;
+	outerCore.maxEnergy = outerMax*2.5f;
+	smoke.minEnergy = smokeMin*2.5f;
+	smoke.maxEnergy = smokeMax*2.5f;
+
+
+}
+function UnFlare()
+{
+	flaringUp = false;
+	innerCore.minEnergy = innerMin;
+	innerCore.maxEnergy = innerMax;
+	outerCore.minEnergy = outerMin;
+	outerCore.maxEnergy = outerMax;
+	smoke.minEnergy = smokeMin;
+	smoke.maxEnergy = smokeMax;
+}
+
+function OnFire()
+{
+	innerCore.emit = true;
+	outerCore.emit = true;
+	smoke.emit = true;
+}
+
+function OnWind()
+{
+	ExtinguishTemp(5.0f);
 }

@@ -29,10 +29,10 @@ public class PlayerCloak : MonoBehaviour {
 	void OnCloak() {
 		if (cloakClip)
 		{
-			AudioSource.PlayClipAtPoint(cloakClip, transform.position);
+			audio.PlayOneShot(cloakClip, 1f);
 		}
 		lerpz.renderer.material = cloakMat;
-		cloakTime = Time.time;
+		cloakTime = Time.time;		
 		cloaked = true;
 	}
 }

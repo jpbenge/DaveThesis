@@ -247,6 +247,7 @@ GameObject:
   - 64: {fileID: 6482198}
   - 54: {fileID: 5482198}
   - 114: {fileID: 11480018}
+  - 114: {fileID: 11460264}
   m_Layer: 0
   m_Name: BlusteryBomb
   m_TagString: Untagged
@@ -560,6 +561,19 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &11460264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc3fc2c6d54d81408cc1b81ad3f0d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endTime: 1
+  ended: 0
 --- !u!114 &11480018
 MonoBehaviour:
   m_ObjectHideFlags: 1
