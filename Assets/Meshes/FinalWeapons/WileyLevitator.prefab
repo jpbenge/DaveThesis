@@ -64,6 +64,8 @@ GameObject:
   - 111: {fileID: 11100002}
   - 54: {fileID: 5468520}
   - 114: {fileID: 11457876}
+  - 114: {fileID: 11452492}
+  - 114: {fileID: 11492788}
   m_Layer: 0
   m_Name: WileyLevitator
   m_TagString: Untagged
@@ -252,6 +254,18 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11452492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1359aeb37551d8a49b82c3d932442b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 3
 --- !u!114 &11457876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,6 +281,17 @@ MonoBehaviour:
   startOffset: 0
   moveSpeed: 1
   moveDistance: 2
+--- !u!114 &11492788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1550f6f366a3a4776879273e6a6059f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

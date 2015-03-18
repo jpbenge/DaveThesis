@@ -181,6 +181,7 @@ GameObject:
   - 95: {fileID: 9500000}
   - 54: {fileID: 5400000}
   - 64: {fileID: 6400000}
+  - 114: {fileID: 11498878}
   m_Layer: 0
   m_Name: OccularFlux
   m_TagString: Untagged
@@ -554,6 +555,18 @@ MonoBehaviour:
   lightPower: {fileID: 0}
   flashFlg: 0
   flashTimer: .300000012
+--- !u!114 &11498878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1359aeb37551d8a49b82c3d932442b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 3.75
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

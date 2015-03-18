@@ -167,6 +167,7 @@ GameObject:
   - 95: {fileID: 9559790}
   - 54: {fileID: 5459790}
   - 135: {fileID: 13559790}
+  - 114: {fileID: 11440796}
   m_Layer: 0
   m_Name: Amonton
   m_TagString: Untagged
@@ -360,6 +361,18 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11440796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1359aeb37551d8a49b82c3d932442b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 5
 --- !u!114 &11459790
 MonoBehaviour:
   m_ObjectHideFlags: 1
