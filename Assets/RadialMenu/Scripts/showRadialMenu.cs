@@ -109,11 +109,11 @@ public class showRadialMenu : MonoBehaviour{
 			weaponButtonUp = true;
     	} //Checks if RMB is pressed
 		else if(Input.GetMouseButtonDown(1) || Input.GetButtonDown("WeaponSelect"))
-			{   
-				//Makes the menu appear
-				showMenuSelection = true;
-				showedMenuSelectionOnce = false;
-    		}
+		{   
+			//Makes the menu appear
+			showMenuSelection = true;
+			showedMenuSelectionOnce = false;
+    	}
 	}
 
 	//Returns the texture name (string) of the "i" element
@@ -206,7 +206,7 @@ public class showRadialMenu : MonoBehaviour{
 
 				}
 				//Checks if RMB is released
-				if(Input.GetMouseButtonUp(1) || weaponButtonUp)
+				if(weaponButtonUp)
 				{   
 
 					//Loop on every menu element until one element is selected or they are over
