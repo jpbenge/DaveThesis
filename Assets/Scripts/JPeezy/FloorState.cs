@@ -9,8 +9,12 @@ public class FloorState : MonoBehaviour {
 	public Material[] floorMats;
 	public PhysicMaterial[] physicsMats;
 	public AudioClip[] sounds;
+	[Tooltip("Delay To fix out of range bug")]
+	public float freezeDelay = 1f;
+	float freezeTime = 0f;
 	// Use this for initialization
 	void Start () {
+		freezeTime = -10f;
 		GoToState((int)floorState);
 	}
 	
@@ -27,7 +31,7 @@ public class FloorState : MonoBehaviour {
 
 	void Extinguish()
 	{
-		if (floorState == FState.Ice || floorState == FState.Oil)
+		if (floorState == FState.Water || floorState == FState.Ice || floorState == FState.Oil)
 		{
 			return;
 		}
@@ -50,13 +54,18 @@ public class FloorState : MonoBehaviour {
 
 	void Freeze()
 	{
-		if (floorState == FState.Oil)
+		print(freezeTime);
+		if (Time.time > freezeTime + freezeDelay)
 		{
-			return;
-		}
-		else
-		{
-			GoToIce();
+			freezeTime = Time.time;
+			if (floorState == FState.Ice || floorState == FState.Oil)
+			{
+				return;
+			}
+			else 
+			{		
+				GoToIce();
+			}
 		}
 	}
 
@@ -81,7 +90,7 @@ public class FloorState : MonoBehaviour {
 		{
 			GoToWater();
 		}
-		else
+		else if(floorState != FState.Scorched)
 		{
 			GoToScorched();
 		}
@@ -100,7 +109,7 @@ public class FloorState : MonoBehaviour {
 
 	void OnOil()
 	{
-		if (floorState == FState.Ice || floorState == FState.Water)
+		if (floorState == FState.Oil || floorState == FState.Ice || floorState == FState.Water)
 		{
 			return;
 		}
@@ -123,7 +132,10 @@ public class FloorState : MonoBehaviour {
 
 	void OnFriction()
 	{
-		GoToFriction();
+		if (floorState != FState.Friction)
+		{
+			GoToFriction();
+		}
 	}
 
 	void GoToFriction()
