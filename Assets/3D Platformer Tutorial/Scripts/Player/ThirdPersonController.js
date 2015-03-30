@@ -34,6 +34,11 @@ private var platformYOffset : float = 0;
 private var lastActivePlatformPosition : Vector3;
 private var platformDif : Vector3;
 
+public var iceMaterial : PhysicMaterial;
+private var onIce : boolean;
+private var lastMovement : Vector3;
+
+
 // The camera doesnt start following the target immediately but waits for a split second to avoid too much waving around.
 private var lockCameraTimer = 0.0;
 
@@ -82,6 +87,7 @@ private var isControllable = true;
 function Awake ()
 {
 	moveDirection = transform.TransformDirection(Vector3.forward);
+	onIce = false;
 }
 
 // This next function responds to the "HidePlayer" message by hiding the player. 
@@ -118,8 +124,10 @@ function UpdateSmoothedMovementDirection ()
 	// Always orthogonal to the forward vector
 	var right = Vector3(forward.z, 0, -forward.x);
 
+
 	var v = Input.GetAxisRaw("Vertical");
 	var h = Input.GetAxisRaw("Horizontal");
+
 
 	// Are we moving backwards or looking backwards
 	if (v < -0.2)
@@ -352,8 +360,13 @@ function FixedUpdate() {
 	ApplyJumping ();
 	
 	// Calculate actual motion
-	var movement = moveDirection * moveSpeed + Vector3 (0, verticalSpeed, 0) + inAirVelocity;
+		var movement : Vector3 = moveDirection * moveSpeed + Vector3 (0, verticalSpeed, 0) + inAirVelocity;
+		if (onIce)
+		{
+			movement = (lastMovement/Time.deltaTime)*0.99 + (0.06*(movement));
+		}
 	movement *= Time.deltaTime;
+	
 	// Move the controller
 	var controller : CharacterController = GetComponent(CharacterController);
 	wallJumpContactNormal = Vector3.zero;
@@ -361,10 +374,8 @@ function FixedUpdate() {
 	{
 		collisionFlags = controller.Move(movement+platformDif);
 	}
-	else
-	{
-		collisionFlags = controller.Move(movement);
-	}
+	collisionFlags = controller.Move(movement);
+	lastMovement = movement;
 	// Set rotation to the move direction
 	if (IsGrounded())
 	{
@@ -406,6 +417,7 @@ function FixedUpdate() {
 			SendMessage("DidLand", SendMessageOptions.DontRequireReceiver);
 		}
 	}
+
 }
 
 function LateUpdate ()
@@ -428,6 +440,14 @@ function OnControllerColliderHit (hit : ControllerColliderHit )
 		//transform.parent = activePlatform.transform;
 		platformYOffset = transform.position.y-activePlatform.transform.position.y;
 		lastActivePlatformPosition = activePlatform.transform.position;
+	}
+	if (hit.collider.sharedMaterial == iceMaterial)
+	{
+		onIce = true;
+	}
+	else
+	{
+		onIce = false;
 	}
 
 }
