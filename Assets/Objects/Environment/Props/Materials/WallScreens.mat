@@ -9,6 +9,7 @@ Material:
   m_Name: WallScreens
   m_Shader: {fileID: 4800000, guid: fe89f05264abe4e45b419314979a5c2c, type: 3}
   m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -21,16 +22,16 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Cube
+          name: _Normal
         second:
-          m_Texture: {fileID: 8900000, guid: b66d7d28b3db14f7382a2887575a3439, type: 2}
+          m_Texture: {fileID: 2800000, guid: 3a74f080682fa4787a2f5996f2742b1e, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Normal
+          name: _Cube
         second:
-          m_Texture: {fileID: 2800000, guid: 3a74f080682fa4787a2f5996f2742b1e, type: 3}
+          m_Texture: {fileID: 8900000, guid: b66d7d28b3db14f7382a2887575a3439, type: 2}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -41,7 +42,7 @@ Material:
       data:
         first:
           name: _OneMinusReflectivity
-        second: .706716418
+        second: .875
     m_Colors:
       data:
         first:
