@@ -54,4 +54,16 @@ public class DoneAlarmLight : MonoBehaviour
 				targetIntensity = highIntensity;
 		}
 	}
+
+	void AlarmOn()
+	{
+		alarmOn = true;
+	}
+
+	void AlarmOff()
+	{	
+		alarmOn = false;
+		light.intensity = 0f;	
+		targetIntensity = highIntensity;
+	}
 }
