@@ -9,6 +9,7 @@ public class SecurityCamera : MonoBehaviour {
 	public GameObject cameraBody;
 	public GameObject cameraLight;
 	private Light camLightLight;
+	public Material cloakMat;
 	public float startOffset = 0f;
 	public float moveSpeed = 1f;
 	public float moveDistance = 10f;
@@ -16,13 +17,15 @@ public class SecurityCamera : MonoBehaviour {
 	public Color spottedLightColor = Color.red;
 	public float alarmDelayTime = 1f;
 	public AudioClip spottedSound;
+	private SkinnedMeshRenderer lerpzRenderer;
 	float spottedTime;
 	bool spottedPlayer;
 	float alarmTime;
 	public float alarmDuration = 20f;
 	public GameObject alarmLight;
 	public AudioSource alarmAudioSource;
-	public float timeBetweenShots = 5f;
+	public AudioClip shootSound;
+	public float timeBetweenShots = 1.5f;
 	float lastShot;
 	enum CameraState {seeking,spotted,alarm};
 	CameraState state;
@@ -38,6 +41,7 @@ public class SecurityCamera : MonoBehaviour {
 		initialVal = cameraBody.transform.localEulerAngles.y;
 		camLightLight = cameraLight.GetComponent<Light>();
 		spotNormalColor = camLightLight.color;
+		lerpzRenderer = GameObject.Find("Lerpz").GetComponent<SkinnedMeshRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -65,7 +69,9 @@ public class SecurityCamera : MonoBehaviour {
 			int layermask = 1 << layer;
 			if (Physics.SphereCast(cameraBody.transform.position, 3, cameraLight.transform.forward, out hit, 10,layermask))
 			{
-            	SpotPlayer();
+
+            	if (lerpzRenderer.sharedMaterial != cloakMat)
+            		SpotPlayer();
             }
             else
             {
@@ -80,7 +86,14 @@ public class SecurityCamera : MonoBehaviour {
 			int layermask = 1 << layer;
 			if (Physics.SphereCast(cameraBody.transform.position, 3, cameraLight.transform.forward, out hit, 10,layermask))
 			{
-          		ShootPlayer();
+				if (lerpzRenderer.sharedMaterial != cloakMat)
+				{
+					if (Time.time > lastShot + timeBetweenShots)
+					{
+						ShootPlayer(hit.collider.gameObject);
+					}
+          			
+				}
             }
             else
             {
@@ -135,8 +148,15 @@ public class SecurityCamera : MonoBehaviour {
 		ForgetPlayer();
 	}
 
-	void ShootPlayer()
+	void ShootPlayer(GameObject obj)
 	{
-		print("Shoot Player");
+		lastShot = Time.time;
+		//print("Shoot Player");
+		if (shootSound != null)
+		{
+			audio.clip = shootSound;
+			audio.Play();
+		}
+		obj.SendMessage("OnCameraShock", SendMessageOptions.RequireReceiver);
 	}
 }

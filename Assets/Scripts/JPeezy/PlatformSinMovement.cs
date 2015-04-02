@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlatformSinMovement : MonoBehaviour {
-	private bool moving = true;
+	public bool moving = true;
 	public enum Axis{X, Y, Z};
 	public Axis axis;
 	public float startOffset = 0f;
@@ -12,7 +12,6 @@ public class PlatformSinMovement : MonoBehaviour {
 	private float initialVal = 0f;
 	// Use this for initialization
 	void Start () {
-		moving = true;
 		sinVal += startOffset;
 		if (axis == Axis.X)
 			initialVal = transform.localPosition.x;

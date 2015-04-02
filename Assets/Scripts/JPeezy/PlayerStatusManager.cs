@@ -18,6 +18,8 @@ public class PlayerStatusManager : MonoBehaviour {
 	public int curHealth;
 	PlayerWeaponManager wManager;
 
+	public GameObject shockParticles;
+
 	// Use this for initialization
 	void Start () {
 		curHealth = maxHealth;
@@ -107,5 +109,15 @@ public class PlayerStatusManager : MonoBehaviour {
 	void Respawn()
 	{
 		curHealth = maxHealth;
+	}
+
+	void OnCameraShock ()
+	{
+		GameObject clone = (GameObject)Instantiate(shockParticles, new Vector3(transform.position.x, transform.position.y+1.5f, transform.position.z), Quaternion.identity);
+		clone.transform.parent = transform;
+		Vector3 slamDir = -transform.forward;
+		slamDir = new Vector3(slamDir.x*2, slamDir.y*5, slamDir.z*2);
+		gameObject.SendMessage("Slam", slamDir);
+		OnHit(10);
 	}
 }
