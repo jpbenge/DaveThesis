@@ -9,6 +9,7 @@ public class SteamShutOff : MonoBehaviour {
 	float lastHitTime = 0f;
 	public AudioClip hitSound;
 	public float reEnableTime = 6f;
+	public float rigidForce = 40f;
 	// Use this for initialization
 	void Start () {
 		lastHitTime = 0f;
@@ -42,16 +43,27 @@ public class SteamShutOff : MonoBehaviour {
 
 	void OnTriggerEnter(Collider hit)
 	{
-		if (on && Time.time > lastHitTime + 0.25 && hit.collider.tag == "Player")
+		if (on)
 		{
-			if (hitSound)
+			if (hit.gameObject.tag == "Player" && Time.time > lastHitTime + 0.25 && hit.collider.tag == "Player")
 			{
-				AudioSource.PlayClipAtPoint(hitSound, transform.position, 1f);
+				if (hitSound)
+				{
+					AudioSource.PlayClipAtPoint(hitSound, transform.position, 1f);
+				}
+				hit.collider.SendMessage("OnHit", damage, SendMessageOptions.DontRequireReceiver);
+				hit.collider.SendMessage("Slam", -2f*hit.transform.forward, SendMessageOptions.DontRequireReceiver);
+				lastHitTime = Time.time;
 			}
-			hit.collider.SendMessage("OnHit", damage, SendMessageOptions.DontRequireReceiver);
-			hit.collider.SendMessage("Slam", -2f*hit.transform.forward, SendMessageOptions.DontRequireReceiver);
-			lastHitTime = Time.time;
 		}
+	}
+
+	void OnTriggerStay(Collider other)
+	{
+		if (other.gameObject.rigidbody != null)
+			{
+				other.rigidbody.AddForce(((transform.up*rigidForce)/Vector3.Distance(transform.position,other.transform.position)));
+			}	
 	}
 
 	void OnWind()

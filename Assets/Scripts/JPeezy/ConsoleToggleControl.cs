@@ -4,17 +4,19 @@ using System.Collections;
 public class ConsoleToggleControl : MonoBehaviour {
 	public bool isActive = false;
 	private bool inTrigger = false;
+	private bool disabled = false;
 	public GameObject[] linkedObjects;
 	public AudioClip toggleSound;
 	public float soundVolume = 1;
  	// Use this for initialization
 	void Start () {
+		disabled = false;
 		inTrigger = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (inTrigger)
+		if (inTrigger && !disabled)
 		{
 			if (Input.GetButtonDown("Activate"))
 			{
@@ -61,5 +63,21 @@ public class ConsoleToggleControl : MonoBehaviour {
 		{
 			linkedRef.SendMessage("OnTerminalDeactivate", SendMessageOptions.DontRequireReceiver);
 		}
+	}
+
+	void OnEMP() {
+		disabled = true;
+	}
+
+	void OnTesla() {
+		disabled = false;
+	}
+
+	void OnTerminalActivate() {
+		isActive = true;
+	}
+
+	void OnTerminalDeactivate() {
+		isActive = false;
 	}
 }

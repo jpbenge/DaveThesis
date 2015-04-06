@@ -35,7 +35,11 @@ private var lastActivePlatformPosition : Vector3;
 private var platformDif : Vector3;
 
 public var iceMaterial : PhysicMaterial;
+public var waterMaterial : PhysicMaterial;
+public var oilMaterial : PhysicMaterial;
 private var onIce : boolean;
+private var onWater : boolean;
+private var onOil : boolean;
 private var lastMovement : Vector3;
 
 
@@ -84,10 +88,15 @@ private var slammed = false;
 
 private var isControllable = true;
 
+var addedForce : Vector3 = Vector3.zero;
+
 function Awake ()
 {
 	moveDirection = transform.TransformDirection(Vector3.forward);
 	onIce = false;
+	onOil = false;
+	onWater = false;
+	addedForce = Vector3.zero;
 }
 
 // This next function responds to the "HidePlayer" message by hiding the player. 
@@ -363,8 +372,18 @@ function FixedUpdate() {
 		var movement : Vector3 = moveDirection * moveSpeed + Vector3 (0, verticalSpeed, 0) + inAirVelocity;
 		if (onIce)
 		{
-			movement = (lastMovement/Time.deltaTime)*0.99 + (0.06*(movement));
+			movement = (lastMovement/Time.deltaTime)*0.98 + (0.06*(movement));
 		}
+		else if (onOil)
+		{
+			movement = (lastMovement/Time.deltaTime)*0.95 + (0.06*(movement));
+		}
+		else if (onWater)
+		{
+			movement = (lastMovement/Time.deltaTime)*0.93 + (0.06*(movement));
+		}
+		movement += addedForce;
+		addedForce = Vector3.zero;
 	movement *= Time.deltaTime;
 	
 	// Move the controller
@@ -444,10 +463,26 @@ function OnControllerColliderHit (hit : ControllerColliderHit )
 	if (hit.collider.sharedMaterial == iceMaterial)
 	{
 		onIce = true;
+		onOil = false;
+		onWater = false;
+	}
+	else if (hit.collider.sharedMaterial == oilMaterial)
+	{
+		onIce = false;
+		onOil = true;
+		onWater = false;
+	}
+	else if (hit.collider.sharedMaterial == waterMaterial)
+	{
+		onIce = false;
+		onOil = false;
+		onWater = true;
 	}
 	else
 	{
 		onIce = false;
+		onOil = false;
+		onWater = false;
 	}
 
 }
@@ -509,6 +544,11 @@ function GetLockCameraTimer ()
 function IsMoving ()  : boolean
 {
 	return Mathf.Abs(Input.GetAxisRaw("Vertical")) + Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.5;
+}
+
+function ExternalForce(forceVector : Vector3)
+{
+	addedForce += forceVector;
 }
 
 function HasJumpReachedApex ()
