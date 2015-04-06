@@ -6,14 +6,14 @@ PhysicMaterial:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Watery
-  dynamicFriction: .00100000005
-  staticFriction: .00100000005
-  bounciness: .00100000005
-  frictionCombine: 1
+  dynamicFriction: .200000003
+  staticFriction: .200000003
+  bounciness: 0
+  frictionCombine: 2
   bounceCombine: 2
-  frictionDirection2: {x: 0, y: 1, z: 0}
-  dynamicFriction2: .00999999978
-  staticFriction2: .0500000007
+  frictionDirection2: {x: 0, y: 0, z: 0}
+  dynamicFriction2: 0
+  staticFriction2: 0
 --- !u!1002 &13400001
 EditorExtensionImpl:
   serializedVersion: 6

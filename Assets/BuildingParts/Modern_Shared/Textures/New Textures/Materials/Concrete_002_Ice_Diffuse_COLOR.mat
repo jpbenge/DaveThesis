@@ -29,6 +29,48 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _BaseDiffuse
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BaseNormal
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BaseSpec
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _IceDiffuse
+        second:
+          m_Texture: {fileID: 2800000, guid: 866f143fd05a64e349dded3f9c9eeb77, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _IceNormal
+        second:
+          m_Texture: {fileID: 2800000, guid: 70f442b36a8b04fcda0bfa4edf5adfa6, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _IceSpec
+        second:
+          m_Texture: {fileID: 2800000, guid: da2e28888ae774f5e9d37174aec8e22b, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _BumpDetailTex
         second:
           m_Texture: {fileID: 0}
@@ -69,11 +111,63 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Diffuse1
+        second:
+          m_Texture: {fileID: 2800000, guid: b0a0186890be9b647bd1a3623cbd86a4, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Diffuse2
+        second:
+          m_Texture: {fileID: 2800000, guid: dd243bc6a69423d43a7d11b793882fe3, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal1
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal2
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
           name: _Shininess
         second: .078125
+      data:
+        first:
+          name: _BaseShininess
+        second: .150000006
+      data:
+        first:
+          name: _IceShininess
+        second: 0
+      data:
+        first:
+          name: _Ice
+        second: 0
+      data:
+        first:
+          name: _IceAmbDiffuse
+        second: 0
+      data:
+        first:
+          name: _BaseAmbDiffuse
+        second: 0
+      data:
+        first:
+          name: _NormalStrength
+        second: 0
       data:
         first:
           name: _BodyOcclusionPower
@@ -130,6 +224,14 @@ Material:
         first:
           name: _EmissionLM
         second: 0
+      data:
+        first:
+          name: _shine
+        second: 0
+      data:
+        first:
+          name: _blend
+        second: 0
     m_Colors:
       data:
         first:
@@ -139,6 +241,10 @@ Material:
         first:
           name: _SpecColor
         second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _BaseSpecColor
+        second: {r: .5, g: .5, b: .5, a: 1}
       data:
         first:
           name: _BodyOcclusionColor
