@@ -9,6 +9,7 @@ Material:
   m_Name: hologram_A_Diffuse
   m_Shader: {fileID: 4800000, guid: 9666b39207d043b4d985cd75461b5776, type: 3}
   m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -16,7 +17,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 98ade9d5ba9434e3aaba50fe7bd94a0c, type: 3}
+          m_Texture: {fileID: 2800000, guid: e58499ad14b424990860fa395a7d1b6a, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -24,13 +25,6 @@ Material:
           name: _BumpMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Cube
-        second:
-          m_Texture: {fileID: 8900000, guid: c0c349a36aee144f18644ce1538aa255, type: 2}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -45,6 +39,13 @@ Material:
           name: _Normal
         second:
           m_Texture: {fileID: 2800000, guid: eb55d8cabe304400fb02eefd619206ed, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Cube
+        second:
+          m_Texture: {fileID: 8900000, guid: c0c349a36aee144f18644ce1538aa255, type: 2}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
