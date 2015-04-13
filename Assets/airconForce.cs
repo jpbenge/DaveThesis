@@ -3,10 +3,14 @@ using System.Collections;
 
 public class airconForce : MonoBehaviour {
 	bool enabled = true;
+	bool magnet = false;
+	CharacterController controller;
 	public Vector3 forceVector = new Vector3(0, 0, -20f);
 	// Use this for initialization
 	void Start () {
 		enabled = true;
+		magnet = false;
+		controller = GameObject.Find("Player").GetComponent<CharacterController>();
 	}
 	
 	// Update is called once per frame
@@ -15,11 +19,11 @@ public class airconForce : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other){
-		if (enabled)
+		if (enabled && !magnet)
 		{
 			if (other.gameObject.tag == "Player")
 			{
-				other.gameObject.SendMessage("ExternalForce",((0.2f*forceVector)/Vector3.Distance(transform.position,other.transform.position)));
+				controller.Move((Time.deltaTime*forceVector/(3f*Vector3.Distance(transform.position,other.transform.position))));
 			}
 			if (other.rigidbody != null)
 			{
@@ -30,11 +34,27 @@ public class airconForce : MonoBehaviour {
 
 	void OnTerminalActivate() {
 		enabled = true;
-		transform.GetChild(0).GetComponent<ParticleSystem>().enableEmission = true;
+		if (transform.childCount > 0)
+			{
+			if (transform.GetChild(0).GetComponent<ParticleSystem>() != null)
+			{
+				transform.GetChild(0).GetComponent<ParticleSystem>().enableEmission = true;
+			}
+		}
 	}
 
 	void OnTerminalDeactivate() {
 		enabled = false;
-		transform.GetChild(0).GetComponent<ParticleSystem>().enableEmission = false;
+		if (transform.childCount > 0)
+			{
+			if (transform.GetChild(0).GetComponent<ParticleSystem>() != null)
+			{
+				transform.GetChild(0).GetComponent<ParticleSystem>().enableEmission = false;
+			}
+		}
+	}
+	public void SetMagnet(bool val)
+	{
+		magnet = val;
 	}
 }

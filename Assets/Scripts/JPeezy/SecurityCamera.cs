@@ -159,4 +159,9 @@ public class SecurityCamera : MonoBehaviour {
 		}
 		obj.SendMessage("OnCameraShock", SendMessageOptions.RequireReceiver);
 	}
+
+	void OnExplosion()
+	{
+		Destroy(transform.parent.gameObject);
+	}
 }

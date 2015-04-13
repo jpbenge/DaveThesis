@@ -15,54 +15,61 @@ public class OpenDoors : MonoBehaviour {
 	public GameObject TopDoors;
 
 	// Store original position of top and bottom doors
-	Vector3 TopDoorsOriginPosition;
-	Vector3 BottomDoorsOriginPosition;
+	public Vector3 TopDoorsOriginPosition;
+	public Vector3 BottomDoorsOriginPosition;
 
 	void Awake()
 	{
-		TopDoorsOriginPosition = TopDoors.transform.position;
-		BottomDoorsOriginPosition = BottomDoors.transform.position;
+		TopDoorsOriginPosition = TopDoors.transform.localPosition;
+		BottomDoorsOriginPosition = BottomDoors.transform.localPosition;
 	}
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-		if(Open_Doors)
+	void Start() {
+		if (Open_Doors)
 		{
 			OpenSciFiDoors();
 		}
-
-		if(door_opened && Close_Doors)
-		{
-			CloseSciFiDoors();
-		}
+	}
+	// Update is called once per frame
+	void Update () {
 
 	}
 
 
 	void OpenSciFiDoors()
-	{
-		TopDoors.transform.position = Vector3.Lerp (TopDoors.transform.position, new Vector3 (0, 3.155952f,TopDoors.transform.position.z ), 0.45f * Time.deltaTime);
-		BottomDoors.transform.position = Vector3.Lerp (BottomDoors.transform.position, new Vector3 (0, -3.310805f, BottomDoors.transform.position.z), 0.45f * Time.deltaTime);
-
-		// We want to wait till doors reach certain position before they can be closed
-		if(TopDoors.transform.position.y > 3 && BottomDoors.transform.position.y < -2.5f)
-		{
-			door_opened = true;
-			Open_Doors = false;
-		}
-	
+	{	
+		Hashtable h1 = new Hashtable();
+		h1.Add("position",new Vector3(TopDoorsOriginPosition.x+35,TopDoorsOriginPosition.y,TopDoorsOriginPosition.z));
+		h1.Add("islocal",true);
+		h1.Add("time",3f);
+		Hashtable h2 = new Hashtable();
+		h2.Add("position",new Vector3(BottomDoorsOriginPosition.x+35,BottomDoorsOriginPosition.y,BottomDoorsOriginPosition.z));
+		h2.Add("islocal",true);
+		h2.Add("time",3f);
+		iTween.MoveTo(TopDoors,h1);
+		iTween.MoveTo(BottomDoors,h2);
 	}
 
 	void CloseSciFiDoors()
 	{
-		TopDoors.transform.position = Vector3.Lerp (TopDoors.transform.position, TopDoorsOriginPosition, 0.45f * Time.deltaTime);
-		BottomDoors.transform.position = Vector3.Lerp (BottomDoors.transform.position, BottomDoorsOriginPosition, 0.45f * Time.deltaTime);
+		Hashtable h1 = new Hashtable();
+		h1.Add("position",TopDoorsOriginPosition);
+		h1.Add("islocal",true);
+		h1.Add("time",1f);
+		Hashtable h2 = new Hashtable();
+		h2.Add("position",BottomDoorsOriginPosition);
+		h2.Add("islocal",true);
+		h2.Add("time",1f);
+		iTween.MoveTo(TopDoors,h1);
+		iTween.MoveTo(BottomDoors,h2);
+	}
 
+	void OnTerminalActivate()
+	{
+		OpenSciFiDoors();
+	}
+	void OnTerminalDeactivate()
+	{
+		CloseSciFiDoors();
 	}
 }

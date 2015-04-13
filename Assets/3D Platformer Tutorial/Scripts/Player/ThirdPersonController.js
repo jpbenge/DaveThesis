@@ -88,7 +88,6 @@ private var slammed = false;
 
 private var isControllable = true;
 
-var addedForce : Vector3 = Vector3.zero;
 
 function Awake ()
 {
@@ -96,7 +95,6 @@ function Awake ()
 	onIce = false;
 	onOil = false;
 	onWater = false;
-	addedForce = Vector3.zero;
 }
 
 // This next function responds to the "HidePlayer" message by hiding the player. 
@@ -382,8 +380,6 @@ function FixedUpdate() {
 		{
 			movement = (lastMovement/Time.deltaTime)*0.93 + (0.06*(movement));
 		}
-		movement += addedForce;
-		addedForce = Vector3.zero;
 	movement *= Time.deltaTime;
 	
 	// Move the controller
@@ -544,11 +540,6 @@ function GetLockCameraTimer ()
 function IsMoving ()  : boolean
 {
 	return Mathf.Abs(Input.GetAxisRaw("Vertical")) + Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.5;
-}
-
-function ExternalForce(forceVector : Vector3)
-{
-	addedForce += forceVector;
 }
 
 function HasJumpReachedApex ()
