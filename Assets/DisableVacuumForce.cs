@@ -26,4 +26,9 @@ public class DisableVacuumForce : MonoBehaviour {
 			vacuumForceScript.SetMagnet(false);
 		}
 	}
+
+	void OnDisable()
+	{
+		vacuumForceScript.SetMagnet(false);
+	}
 }
