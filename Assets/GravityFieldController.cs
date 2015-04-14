@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class GravityFieldController : MonoBehaviour {
+	public bool startOff = false;
 	GameObject gravityField;
 	Light l1;
 	Light l2;
@@ -15,6 +16,10 @@ public class GravityFieldController : MonoBehaviour {
 			l2 = transform.GetChild(2).GetComponent<Light>();
 		}
 		panelParts = gameObject.GetComponentsInChildren<ParticleSystem>();
+		if (startOff)
+		{
+			OnTerminalDeactivate();
+		}
 	}
 	
 	// Update is called once per frame

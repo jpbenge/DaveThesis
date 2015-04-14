@@ -20,7 +20,7 @@ public class TeslaShock : MonoBehaviour {
 
 	void Pulse()
 	{
-		Collider[] hitColliders = Physics.OverlapSphere(transform.position, 2.2f);
+		Collider[] hitColliders = Physics.OverlapSphere(transform.position, 3f);
 		
 		int i = 0;
 		while (i < hitColliders.Length)
@@ -28,7 +28,6 @@ public class TeslaShock : MonoBehaviour {
         	print(hitColliders[i].name);
         	if (hitColliders[i].transform.parent != null)
             	hitColliders[i].transform.parent.gameObject.SendMessage("OnShock",SendMessageOptions.DontRequireReceiver);
-            else
             	hitColliders[i].gameObject.SendMessage("OnShock",SendMessageOptions.DontRequireReceiver);
            	i++;
         }
