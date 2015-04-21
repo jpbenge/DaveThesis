@@ -35,10 +35,17 @@ public class airconForce : MonoBehaviour {
 	void OnTerminalActivate() {
 		enabled = true;
 		if (transform.childCount > 0)
+		{
+			foreach (Transform child in transform)
 			{
-			if (transform.GetChild(0).GetComponent<ParticleSystem>() != null)
-			{
-				transform.GetChild(0).GetComponent<ParticleSystem>().enableEmission = true;
+				if (child.GetComponent<ParticleSystem>() != null)
+				{
+					child.GetComponent<ParticleSystem>().enableEmission = true;
+				}
+				else if (child.GetComponent<ParticleEmitter>()!= null)
+				{
+					child.GetComponent<ParticleEmitter>().emit = true;
+				}
 			}
 		}
 	}
@@ -46,10 +53,17 @@ public class airconForce : MonoBehaviour {
 	void OnTerminalDeactivate() {
 		enabled = false;
 		if (transform.childCount > 0)
+		{
+			foreach (Transform child in transform)
 			{
-			if (transform.GetChild(0).GetComponent<ParticleSystem>() != null)
-			{
-				transform.GetChild(0).GetComponent<ParticleSystem>().enableEmission = false;
+				if (child.GetComponent<ParticleSystem>() != null)
+				{
+					child.GetComponent<ParticleSystem>().enableEmission = false;
+				}
+				else if (child.GetComponent<ParticleEmitter>()!= null)
+				{
+					child.GetComponent<ParticleEmitter>().emit = false;
+				}
 			}
 		}
 	}

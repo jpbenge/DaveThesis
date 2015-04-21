@@ -122,7 +122,7 @@ MonoBehaviour:
     hqOnly: 0
     yOffset: 0
   explosionEmitters:
-  - gameObject: {fileID: 100008, guid: 3497d2215bfae43bb89cc22d92e1b99e, type: 2}
+  - gameObject: {fileID: 100000, guid: 4a4d5984cb3fe5b499da98605585dc1b, type: 2}
     delay: .400000006
     hqOnly: 0
     yOffset: 0

@@ -7,11 +7,16 @@ public class ConsoleToggleControl : MonoBehaviour {
 	private bool disabled = false;
 	public GameObject[] linkedObjects;
 	public AudioClip toggleSound;
+	public AudioClip PowerOffSound;
+	public AudioClip PowerOnSound;
 	public float soundVolume = 1;
+	public Material blackMat;
+	Material screenMat;
  	// Use this for initialization
 	void Start () {
 		disabled = false;
 		inTrigger = false;
+		screenMat = transform.GetChild(0).renderer.sharedMaterial;
 	}
 	
 	// Update is called once per frame
@@ -66,11 +71,25 @@ public class ConsoleToggleControl : MonoBehaviour {
 	}
 
 	void OnEMP() {
+		if (PowerOffSound)
+		{
+			AudioSource.PlayClipAtPoint(PowerOffSound, transform.position, soundVolume);
+		}
 		disabled = true;
+		foreach (Transform child in transform) {
+            child.renderer.material = blackMat;
+        }
 	}
 
-	void OnTesla() {
+	void OnShock() {
+		if (PowerOnSound)
+		{
+			AudioSource.PlayClipAtPoint(PowerOnSound, transform.position, soundVolume);
+		}
 		disabled = false;
+		foreach (Transform child in transform) {
+            child.renderer.material = screenMat;
+        }
 	}
 
 	void OnTerminalActivate() {
