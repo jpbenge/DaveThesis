@@ -49,7 +49,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 33: {fileID: 3300002}
   - 135: {fileID: 13500002}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sphere
   m_TagString: smoke
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.9035263, y: 7.23490238, z: -26.0293427}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .118132867, y: .118132867, z: .118132867}
   m_Children:
   - {fileID: 400000}
@@ -277,10 +277,10 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .5
+  m_Radius: .400000006
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:

@@ -3,6 +3,7 @@ var speed = 2.0;
 var timingOffset = 0.0;
 var laserWidth = 12.0;
 var damage = 20;
+var layers : LayerMask;
 var hitEffect : GameObject;
 
 private var originalPosition : Vector3;
@@ -24,7 +25,7 @@ function Update ()
 	var offset = (1 + Mathf.Sin(Time.time * speed + timingOffset)) * height / 2;
 	transform.position = originalPosition + Vector3(0, offset, 0);
 
-	if (Time.time > lastHitTime + 0.25 && Physics.Raycast(transform.position, transform.forward, hit, laserWidth))
+	if (Time.time > lastHitTime + 0.25 && Physics.Raycast(transform.position, transform.forward, hit, laserWidth, layers))
 	{
 		if (hit.collider.tag == "Player" || hit.collider.tag == "Enemy")
 		{

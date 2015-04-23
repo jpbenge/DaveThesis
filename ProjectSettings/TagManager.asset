@@ -18,6 +18,8 @@ TagManager:
   - smoke
   - breath
   - 
+  - missile
+  - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast
@@ -30,8 +32,8 @@ TagManager:
   User Layer 9: Extents
   User Layer 10: noShadow
   User Layer 11: Player
-  User Layer 12: 
-  User Layer 13: 
+  User Layer 12: laserNubs
+  User Layer 13: Smoke
   User Layer 14: 
   User Layer 15: 
   User Layer 16: 
