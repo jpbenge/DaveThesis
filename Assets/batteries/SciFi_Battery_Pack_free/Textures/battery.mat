@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: battery
-  m_Shader: {fileID: 4800000, guid: 5e4f5945c634c4261985dc9a1204b410, type: 3}
+  m_Shader: {fileID: 4800000, guid: 690fafa4c3f089f428b15f8c987de75c, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -43,6 +43,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _Normal
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _Cube
         second:
           m_Texture: {fileID: 0}
@@ -51,6 +58,13 @@ Material:
       data:
         first:
           name: _ParallaxMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _AORGBHeightA
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -70,12 +84,20 @@ Material:
         second: 1.07142854
       data:
         first:
+          name: _RimPower
+        second: .400000006
+      data:
+        first:
           name: _Parallax
         second: .0199999996
       data:
         first:
           name: _BumpAmt
         second: 10
+      data:
+        first:
+          name: _AlphaMultiplier
+        second: 2
     m_Colors:
       data:
         first:
@@ -87,5 +109,17 @@ Material:
         second: {r: .196078435, g: .196078435, b: .196078435, a: 1}
       data:
         first:
+          name: _Diffuse
+        second: {r: .90196079, g: .701960802, b: .376470596, a: 1}
+      data:
+        first:
           name: _ReflectColor
         second: {r: 1, g: 1, b: 1, a: .5}
+      data:
+        first:
+          name: _Emission
+        second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _LightWrapping
+        second: {r: .905882418, g: .494117588, b: .490196109, a: 1}
