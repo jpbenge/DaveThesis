@@ -38,6 +38,14 @@ public class PlayerStatusManager : MonoBehaviour {
 		print(numKeyCards);
 	}
 
+	void RemoveKeyCard()
+	{
+		if (numKeyCards > 0)
+		{
+			numKeyCards -= 1;
+		}
+	}
+
 	void OnGUI()
 	{
 		GUI.skin = gSkin;
