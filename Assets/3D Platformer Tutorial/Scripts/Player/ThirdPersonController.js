@@ -42,7 +42,7 @@ private var onWater : boolean;
 private var onOil : boolean;
 private var lastMovement : Vector3;
 
-
+private var victory : boolean = false;
 // The camera doesnt start following the target immediately but waits for a split second to avoid too much waving around.
 private var lockCameraTimer = 0.0;
 
@@ -95,6 +95,7 @@ function Awake ()
 	onIce = false;
 	onOil = false;
 	onWater = false;
+	victory = false;
 }
 
 // This next function responds to the "HidePlayer" message by hiding the player. 
@@ -338,6 +339,8 @@ function DidJump ()
 }
 
 function FixedUpdate() {
+if (!victory)
+{
 	//Debug.Log(IsGrounded());
 	if (!isControllable)
 	{
@@ -432,7 +435,7 @@ function FixedUpdate() {
 			SendMessage("DidLand", SendMessageOptions.DontRequireReceiver);
 		}
 	}
-
+}
 }
 
 function LateUpdate ()
@@ -564,6 +567,11 @@ function Reset ()
 	gameObject.tag = "Player";
 }
 
+function OnVictory ()
+{
+	victory = true;
+	Debug.Log("CONTROLLER VICTORY");
+}
 
 // Require a character controller to be attached to the same game object
 @script RequireComponent(CharacterController)

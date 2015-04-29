@@ -17,11 +17,15 @@ public class PlayerStatusManager : MonoBehaviour {
 	public int maxHealth = 100;
 	public int curHealth;
 	PlayerWeaponManager wManager;
-
+	bool victory = false;
+	public AudioClip deathSound;
+	public AudioClip respawnSound;
+	public AudioClip victoryMusic;
 	public GameObject shockParticles;
 
 	// Use this for initialization
 	void Start () {
+		victory = false;
 		curHealth = maxHealth;
 		numKeyCards = 0;
 		wManager = GetComponent<PlayerWeaponManager>();
@@ -29,7 +33,11 @@ public class PlayerStatusManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (victory && Input.GetButtonDown("Submit"))
+		{
+			CancelInvoke();
+			LoadTitle();
+		}
 	}
 
 	void OnGetKeyCard()
@@ -55,38 +63,58 @@ public class PlayerStatusManager : MonoBehaviour {
 		GUI.skin = gSkin;
 		UIScale = new Vector2(Screen.width / baseWidth, Screen.height / baseHeight);
 		GUI.matrix = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, new Vector3 (UIScale.x, UIScale.y, 1));
-		GUI.Label(new Rect(1550,1075,100,50),""+numKeyCards);
-		if (curHealth == maxHealth)
+		if (!victory)
 		{
-			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[5]);
-			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[5]);
+			GUI.Label(new Rect(1550,1075,100,50),""+numKeyCards);
+			if (curHealth == maxHealth)
+			{
+				GUI.DrawTexture(new Rect(8,886,168,168),healthImages[5]);
+				GUI.DrawTexture(new Rect(8,886,168,168),healthImages[5]);
+			}
+			else if (curHealth >= maxHealth*(5f/6f))
+			{
+				GUI.DrawTexture(new Rect(8,886,168,168),healthImages[4]);
+				GUI.DrawTexture(new Rect(8,886,168,168),healthImages[4]);
+			}
+			else if (curHealth >= maxHealth*(2f/3f))
+			{
+				GUI.DrawTexture(new Rect(8,886,168,168),healthImages[3]);
+				GUI.DrawTexture(new Rect(8,886,168,168),healthImages[3]);
+			}
+			else if (curHealth >= maxHealth*0.5f)
+			{
+				GUI.DrawTexture(new Rect(8,886,168,168),healthImages[2]);
+				GUI.DrawTexture(new Rect(8,886,168,168),healthImages[2]);
+			}
+			else if (curHealth >= maxHealth*(1f/3f))
+			{
+				GUI.DrawTexture(new Rect(8,886,168,168),healthImages[1]);
+				GUI.DrawTexture(new Rect(8,886,168,168),healthImages[1]);
+			}
+			else if (curHealth > 0)
+			{
+				GUI.DrawTexture(new Rect(8,886,168,168),healthImages[0]);
+				GUI.DrawTexture(new Rect(8,886,168,168),healthImages[0]);
+			}
+			GUI.DrawTexture(new Rect(375,1010,120,120),WeaponImages[wManager.curWeapon]);
 		}
-		else if (curHealth >= maxHealth*(5f/6f))
+		else //victory
 		{
-			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[4]);
-			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[4]);
+
 		}
-		else if (curHealth >= maxHealth*(2f/3f))
-		{
-			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[3]);
-			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[3]);
-		}
-		else if (curHealth >= maxHealth*0.5f)
-		{
-			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[2]);
-			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[2]);
-		}
-		else if (curHealth >= maxHealth*(1f/3f))
-		{
-			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[1]);
-			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[1]);
-		}
-		else if (curHealth > 0)
-		{
-			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[0]);
-			GUI.DrawTexture(new Rect(8,886,168,168),healthImages[0]);
-		}
-		GUI.DrawTexture(new Rect(375,1010,120,120),WeaponImages[wManager.curWeapon]);
+	}
+
+	void OnVictory()
+	{
+		victory = true;
+		Camera.main.SendMessage("OnVictory");
+		Camera.main.GetComponent<AudioSource>().clip = victoryMusic;
+		Camera.main.GetComponent<AudioSource>().Play();
+		Invoke("LoadTitle",25f);	
+	}
+	void LoadTitle()
+	{
+		Application.LoadLevel("title");
 	}
 
 	void OnHit(int dmg)
@@ -115,12 +143,21 @@ public class PlayerStatusManager : MonoBehaviour {
 		mCam.SendMessage("OnDeath", SendMessageOptions.DontRequireReceiver);
 		transform.localEulerAngles = spawnPoint.transform.localEulerAngles;
 		transform.position = spawnPoint.transform.position;
+		if (deathSound)
+		{
+			audio.clip = deathSound;
+			audio.Play();
+		}
 		Respawn();
 	}
 
 	void Respawn()
 	{
 		curHealth = maxHealth;
+		if (respawnSound)
+		{
+			AudioSource.PlayClipAtPoint(respawnSound,transform.position);
+		}
 	}
 
 	void OnCameraShock ()

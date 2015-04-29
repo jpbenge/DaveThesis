@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 
 public class CameraFade : MonoBehaviour {
-
+	public Texture2D victoryImage;
 	// Use this for initialization
 	void Start () {
 		iTween.CameraFadeAdd();
@@ -28,5 +28,16 @@ public class CameraFade : MonoBehaviour {
 	{
 		iTween.CameraFadeTo(0,1f);
 		gameObject.SendMessage("FaceCamera", SendMessageOptions.DontRequireReceiver);
+	}
+
+	void OnVictory()
+	{
+		print("CAMERA VICTORY");
+		iTween.CameraFadeSwap(victoryImage);
+		Hashtable hash = new Hashtable();
+		hash.Add("amount",1f);
+		hash.Add("time",1.5f);
+		hash.Add("oncompletetarget",gameObject);
+		iTween.CameraFadeTo(hash);
 	}
 }

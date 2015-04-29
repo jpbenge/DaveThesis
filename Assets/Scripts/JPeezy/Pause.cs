@@ -5,6 +5,7 @@ public class Pause : MonoBehaviour {
 
 	BlurEffect blurScript;
 	bool paused;
+	public GUISkin gskin;
 	// Use this for initialization
 	void Start () {
 		paused = false;
@@ -35,9 +36,15 @@ public class Pause : MonoBehaviour {
 	}
 
 	void OnGUI() {
+		GUI.skin = gskin;
 		if (paused)
 		{
-			GUI.Label(new Rect((Screen.width/2)-30,(Screen.height/2)-10,60,20),"Paused");
+			GUI.Label(new Rect((Screen.width/2)-151,(Screen.height/2)-50,300,100),"Paused","PauseTextOutline");
+			GUI.Label(new Rect((Screen.width/2)-150,(Screen.height/2)-51,300,100),"Paused","PauseTextOutline");
+			GUI.Label(new Rect((Screen.width/2)-149,(Screen.height/2)-50,300,100),"Paused","PauseTextOutline");
+			GUI.Label(new Rect((Screen.width/2)-150,(Screen.height/2)-49,300,100),"Paused","PauseTextOutline");
+			GUI.Label(new Rect((Screen.width/2)-150,(Screen.height/2)-50,300,100),"Paused","PauseText");
+
 		}
 	}
 }

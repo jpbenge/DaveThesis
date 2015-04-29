@@ -12,9 +12,11 @@ public class PlayerWeaponManager : MonoBehaviour {
 	public Transform wileySpawnPoint;
 	bool newTrigger = false;
 	bool triggerDown = false;
+	bool victory = false;
 	
 	// Use this for initialization
 	void Start () {
+		victory = false;
 		curWeapon = 0;
 		newTrigger = false;
 		triggerDown = false;
@@ -32,8 +34,11 @@ public class PlayerWeaponManager : MonoBehaviour {
 				break;
 		}
 		bool newTrigger = Input.GetAxis("Run/Shoot") > 0f;
-		if (Input.GetButtonDown("Shoot") || (!triggerDown && newTrigger)) {
-			FireWeapon(curWeapon);
+		if (!victory)
+		{
+			if (Input.GetButtonDown("Shoot") || (!triggerDown && newTrigger)) {
+				FireWeapon(curWeapon);
+			}
 		}
 		triggerDown = newTrigger;
 	}
@@ -62,5 +67,10 @@ public class PlayerWeaponManager : MonoBehaviour {
 	void WeaponUpdate()
 	{
 		curWeapon = showRadialMenu.getSelection()-1;
+	}
+
+	void OnVictory()
+	{
+		victory = true;
 	}
 }

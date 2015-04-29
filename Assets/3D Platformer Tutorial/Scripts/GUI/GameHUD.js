@@ -25,14 +25,20 @@ var fuelCellOffset = Vector2(0, 0);
 var fuelCellCountOffset = Vector2(391, 161);
 
 private var playerInfo : ThirdPersonStatus;
-
+var victory : boolean = false;
 // Cache link to player's state management script for later use.
 function Awake()
 {
+	victory = false;
 	playerInfo = FindObjectOfType(ThirdPersonStatus);
 
 	if (!playerInfo)
 		Debug.Log("No link to player's state manager.");
+}
+
+function OnVictory()
+{
+	victory = true;
 }
 
 function OnGUI ()
@@ -54,7 +60,8 @@ function OnGUI ()
 	// Our GUI is laid out for a 1920 x 1200 pixel display (16:10 aspect). The next line makes sure it rescales nicely to other resolutions.
 	var guiScale : Vector2 = new Vector2(Screen.width / nativeHorizontalResolution, Screen.height / nativeVerticalResolution);
 	GUI.matrix = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, Vector3 (guiScale.x, guiScale.y, 1)); 
-
+	if (!victory)
+	{
 	// Health & lives info.
 	DrawImageBottomAligned( healthImageOffset, healthImage); // main image.
 
@@ -69,6 +76,7 @@ function OnGUI ()
 	DrawImageBottomRightAligned( fuelCellOffset, fuelCellsImage);
 
 	//DrawLabelBottomRightAligned( fuelCellCountOffset, itemsLeft.ToString() );
+	}
 }
 
 function DrawImageBottomAligned (pos : Vector2, image : Texture2D)
