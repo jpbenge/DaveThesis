@@ -53,6 +53,8 @@ public class showRadialMenu : MonoBehaviour{
 		// FIRST INTIALIZATION
 	
 	private Vector2 stickPos;
+	public float baseWidth = 1920f;
+	public float baseHeight = 1200f;
 	public float widthMult = 5.6f;
 	public float heightMult = 2.4f;
 	private bool weaponButtonUp;
@@ -63,7 +65,7 @@ public class showRadialMenu : MonoBehaviour{
 		tempSelection = -1;
 
 		//Reads the xml file containing the menu specifications
-		xmlMenu = RadialMenuXML.Load("Assets/XmlMenu/xmlMenu.xml");
+		xmlMenu = RadialMenuXML.Load("XmlMenu/xmlMenu.xml");
 		
 		if(xmlMenu != null){
 			//Initializes the number of the elements and both element and menu radius
@@ -138,8 +140,8 @@ public class showRadialMenu : MonoBehaviour{
 		// SHOWING THE RADIAL MENU
 	
 	void OnGUI() {
-		float stickX = (Screen.width / 2f) + (Input.GetAxis("RightX")*(Screen.width / widthMult));
-		float stickY = (Screen.height / 2f) - (Input.GetAxis("RightY")*(Screen.height / heightMult));
+		float stickX = (Screen.width / 2f) + (Input.GetAxis("RightX")*(baseWidth / widthMult));
+		float stickY = (Screen.height / 2f) - (Input.GetAxis("RightY")*(baseHeight / heightMult));
 		stickPos = new Vector2(stickX, stickY);
 		//Checks every time if the configuration file is present
 		if(xmlMenu != null){

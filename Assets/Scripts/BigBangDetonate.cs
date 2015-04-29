@@ -17,6 +17,7 @@ public class BigBangDetonate : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag != "Player")
 		{
+			print(other.gameObject.name);
 			GameObject clone = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
 			clone.AddComponent<DestroyAfterSeconds>();
         	Collider[] hitColliders = Physics.OverlapSphere(transform.position, 2.5f);

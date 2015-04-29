@@ -50,7 +50,7 @@ public class RadialMenuXML
         var serializer = new XmlSerializer(typeof(RadialMenuXML));
         try
 		{
-			using(var stream = new FileStream(path, FileMode.Open))
+			using(var stream = new FileStream(Application.dataPath+"\\"+path, FileMode.Open))
         	{
             	return serializer.Deserialize(stream) as RadialMenuXML;
         	}
