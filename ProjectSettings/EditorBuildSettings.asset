@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Unity_PROTO/ThesisFinal/Final_v1/Final_v2.unity
-  - enabled: 1
     path: Assets/Scenes/title.unity
+  - enabled: 1
+    path: Assets/Scenes/Unity_PROTO/ThesisFinal/Final_v1/Final_v2.unity
