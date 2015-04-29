@@ -21,13 +21,15 @@ public class KeyCardPanel : MonoBehaviour {
 		{
 			if (Input.GetButtonDown("Activate"))
 			{
-				Debug.Log("Activate");
-				UseKeyCard();
-				isUsed = true;
-				transform.GetChild(0).renderer.material = usedMat;
-				if (useSound)
+				if (player.GetComponent<PlayerStatusManager>().GetNumKeyCards() > 0)
 				{
-					AudioSource.PlayClipAtPoint(useSound, transform.position, 1);
+					UseKeyCard();
+					isUsed = true;
+					transform.GetChild(0).renderer.material = usedMat;
+					if (useSound)
+					{
+						AudioSource.PlayClipAtPoint(useSound, transform.position, 1);
+					}
 				}
 			}
 		}

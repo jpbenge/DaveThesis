@@ -7,7 +7,7 @@ var smoke : ParticleEmitter;
 var extinguishSound : AudioClip;
 var oilSound : AudioClip;
 var flareUpTime : float = 4.0f;
-private var onFire : boolean = true;
+var onFire : boolean = true;
 private var flaringUp : boolean = false;
 private var flareUpStart : float = 0f;
 private var innerMin : float;
@@ -21,7 +21,6 @@ var hitSound : AudioClip;
 
 
 function Start () {
-	onFire = true;
 	flaringUp = false;
 	innerMin = innerCore.minEnergy;
 	innerMax = innerCore.maxEnergy;
@@ -29,6 +28,10 @@ function Start () {
 	outerMax = outerCore.maxEnergy;
 	smokeMin = smoke.minEnergy;
 	smokeMax = smoke.maxEnergy;
+	if (!onFire)
+	{
+		PutOut();
+	}
 }
 
 function Update () {
@@ -105,6 +108,11 @@ function OnFire()
 	onFire = true;
 }
 
+function OnExplosion()
+{
+	OnFire();
+}
+
 function OnWind()
 {
 	ExtinguishTemp(5.0f);
@@ -122,4 +130,12 @@ function OnTriggerEnter(hit : Collider)
 		hit.collider.SendMessage("Slam", -2f*hit.transform.forward, SendMessageOptions.DontRequireReceiver);
 		lastHitTime = Time.time;
 	}
+}
+
+function PutOut()
+{
+	onFire = false;
+	innerCore.emit = false;
+	outerCore.emit = false;
+	smoke.emit = false;
 }

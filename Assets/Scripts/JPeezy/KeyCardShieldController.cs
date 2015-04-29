@@ -25,9 +25,12 @@ public class KeyCardShieldController : MonoBehaviour {
 	{
 		if (deactivateShieldSound)
 		{
-			AudioSource.PlayClipAtPoint(deactivateShieldSound, transform.position);
+			audio.clip = deactivateShieldSound;
+			audio.pitch = 0.85f;
+			audio.volume = 1f;
+			audio.loop = false;
+			audio.Play();
 		}
-		audio.Stop();
 		foreach (Transform child in transform)
 		{
 			child.gameObject.SetActive(false);

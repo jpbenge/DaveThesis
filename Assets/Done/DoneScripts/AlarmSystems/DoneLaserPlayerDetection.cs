@@ -7,7 +7,7 @@ public class DoneLaserPlayerDetection : MonoBehaviour
     private DoneLastPlayerSighting lastPlayerSighting;		// Reference to the global last sighting of the player.
     public AudioClip sound;
     public float soundVolume = 1f;
-
+    public AudioClip empSound;
     void Awake ()
     {
 		// Setting up references.
@@ -28,5 +28,49 @@ public class DoneLaserPlayerDetection : MonoBehaviour
                 if (sound)
                     AudioSource.PlayClipAtPoint(sound, transform.position, soundVolume);
             }
+    }
+
+    void OnEMP()
+    {
+        if (renderer.enabled && !IsInvoking("EMP1") && !IsInvoking("EMP2") && !IsInvoking("EMP3") && !IsInvoking("EMP4") && !IsInvoking("EMP5"))
+        {
+            if (empSound)
+            {
+                AudioSource.PlayClipAtPoint(empSound, transform.position, soundVolume);
+            }
+            renderer.enabled = false;
+            Invoke("EMP1",0.2f);
+        }
+        print("EMP");
+    }
+
+    void EMP1()
+    {
+        renderer.enabled = true;
+        Invoke("EMP2",0.1f);
+    }
+
+    void EMP2()
+    {
+        renderer.enabled = false;
+        Invoke("EMP3",0.1f);
+    }
+
+    void EMP3()
+    {
+        renderer.enabled = true;
+        Invoke("EMP4",0.1f);
+    }
+
+    void EMP4()
+    {
+        renderer.enabled = false;
+        Invoke("EMP5",5f);
+    }
+
+    void EMP5()
+    {
+        renderer.enabled = true;
+        CancelInvoke();
     }
 }

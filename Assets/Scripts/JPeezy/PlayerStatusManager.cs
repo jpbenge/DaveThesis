@@ -45,6 +45,10 @@ public class PlayerStatusManager : MonoBehaviour {
 			numKeyCards -= 1;
 		}
 	}
+	public int GetNumKeyCards()
+	{
+		return numKeyCards;
+	}
 
 	void OnGUI()
 	{
